@@ -1,0 +1,30 @@
+
+# file: ~/.bash_profile
+set -gx GOROOT /usr/local/go            
+set -gx GOPATH ~/.gocode
+
+set -gx PATH $PATH $GOROOT/bin
+set -gx PATH $PATH $GOPATH/bin
+set -gx PATH $PATH /opt/gradle/gradle-5.0/bin
+set -gx PATH $PATH /home/martin/.local/bin 
+
+
+set fish_greeting
+
+function mltø
+	 cd ~/Dropbox/UNI/S5/Machine Learning/
+	 cd TØ
+	 jupyter notebook
+end
+
+alias ls "ls -B"
+alias weather "curl wttr.in"
+alias xclip "xclip -sel clip"
+alias ipy "ipython"
+alias l "ls -lh"
+alias open "xdg-open"
+alias aflevering "~/Dropbox/UNI/.aflevering.py"
+alias lort "vim"
+alias zzz "systemctl suspend"
+alias gimmeh "sudo apt install"
+
