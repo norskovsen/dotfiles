@@ -27,7 +27,6 @@ Plugin 'git://git.wincent.com/command-t.git'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'Shougo/vimproc.vim'
-
 Plugin 'jceb/vim-orgmode'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'leafgarland/typescript-vim'
@@ -38,10 +37,10 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'MikeCoder/quickrun.vim' 
 Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'mboughaba/i3config.vim'
-
+Plugin 'ap/vim-css-color'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'eagletmt/ghcmod-vim'
-
+Plugin 'dag/vim-fish'
 
 call vundle#end()
 filetype plugin indent on
@@ -81,4 +80,5 @@ nnoremap <F5> :QuickRun<cr>
 
 " Java
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+
 
