@@ -7,6 +7,7 @@ set -gx PATH $PATH $GOPATH/bin
 set -gx PATH $PATH /opt/gradle/gradle-5.0/bin
 set -gx PATH $PATH /home/martin/.local/bin 
 set -gx PATH $PATH /home/martin/.npm-global/bin
+set -gx PATH $PATH /usr/local/texlive/2019/bin/x86_64-linux
 
 set fish_greeting
 
@@ -47,4 +48,6 @@ alias dubidub "mplayer ~/Diverse/dudidud.mp3 -ss 04 -endpos 0.7 > /dev/null 2>&1
 alias top "cat ~/Diverse/top.txt"
 alias ccat='pygmentize -g'
 alias bbdownload '/home/martin/Dropbox/Projekter/Python/Blackboard-Scripts/download.py'
-alias fixcaps 'setxkbmap -option ctrl:swapcaps'
+alias http-server 'python3 -m http.server'
+alias fix-caps 'setxkbmap -option ctrl:swapcaps'
+alias fix-network 'systemctl restart network-manager'
