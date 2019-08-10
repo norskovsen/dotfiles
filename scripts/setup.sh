@@ -10,7 +10,14 @@ sudo apt install vim \
                  git \
                  python3-pip \
                  tilix \
-                 steam
+                 steam \
+                 xfce4-power-manager \
+                 xfce4-volumed \
+                 xfce4-clipman \
+                 xfce4-notifyd \
+                 xfce-settings \
+                 xfce4-pulseaudio-plugin \
+                    
 
 
 # Installing snap packages
