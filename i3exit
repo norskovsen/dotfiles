@@ -6,7 +6,8 @@
 
 case "$1" in
     lock)
-        betterlockscreen -l blur
+        #betterlockscreen -l blur
+        gnome-screensaver-command -l 
         ;;
     logout)
         i3-msg exit
@@ -15,7 +16,7 @@ case "$1" in
         dm-tool switch-to-greeter
         ;;
     suspend)
-        betterlockscreen -s blur
+        systemctl -i suspend
         ;;
     hibernate)
         $logind hibernate & betterlockscreen -l blur

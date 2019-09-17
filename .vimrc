@@ -81,4 +81,4 @@ nnoremap <F5> :QuickRun<cr>
 " Java
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
-
+set completeopt-=preview
