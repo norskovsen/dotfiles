@@ -22,10 +22,10 @@ case "$1" in
         $logind hibernate & betterlockscreen -l blur
         ;;
     reboot)
-        systemctl -i reboot
+        ~/Diverse/winshutdown && systemctl -i reboot
         ;;
     shutdown)
-        systemctl poweroff -i
+        ~/Diverse/winshutdown && systemctl poweroff -i
         ;;
     *)
         echo "== ! i3exit: missing or invalid argument ! =="
