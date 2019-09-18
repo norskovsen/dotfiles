@@ -10,7 +10,7 @@ case "$1" in
         gnome-screensaver-command -l 
         ;;
     logout)
-        i3-msg exit
+        ~/Diverse/winshutdown && i3-msg exit
         ;;
     switch_user)
         dm-tool switch-to-greeter
