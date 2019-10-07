@@ -14,6 +14,7 @@ set cindent
 
 set visualbell t_vb= 
 set novisualbell    
+set mouse=a
 
 " Plugins
 set nocompatible
