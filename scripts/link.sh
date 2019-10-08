@@ -45,6 +45,9 @@ sudo ln -s ~/Dropbox/Projekter/Diverse/dotfiles/xmodmap ~/.xmodmap
 # Link fish
 sudo ln -s ~/Dropbox/Projekter/Diverse/dotfiles/fish ~/.config/fish 
 
+# Link nvim
+sudo ln -s ~/Dropbox/Projekter/Diverse/dotfiles/nvim ~/.config/nvim 
+
 # Install programs
 # TODO
 

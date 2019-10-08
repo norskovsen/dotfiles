@@ -1,3 +1,8 @@
+"set runtimepath^=~/.vim runtimepath+=~/.vim/after
+"let &packpath = &runtimepath
+"source ~/.vimrc
+"
+"
 set rnu!
 set ai
 set hlsearch            
@@ -83,3 +88,4 @@ nnoremap <F5> :QuickRun<cr>
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 set completeopt-=preview
+set guioptions+=a
