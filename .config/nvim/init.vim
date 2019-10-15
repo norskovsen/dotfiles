@@ -48,6 +48,14 @@ Plugin 'itchyny/vim-haskell-indent'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'dag/vim-fish'
 
+" Markdown
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+
+" Markdown preview
+Plugin 'JamshedVesuna/vim-markdown-preview'
+let vim_markdown_preview_github=1
+
 call vundle#end()
 filetype plugin indent on
 syntax on

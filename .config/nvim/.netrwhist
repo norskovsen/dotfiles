@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/home/martin/Dropbox/Projekter/Diverse/dotfiles/nvim'
+let g:netrw_dirhist_2='/home/martin/Dropbox/Projekter/Diverse/dotfiles/config'
+let g:netrw_dirhist_3='/home/martin/Dropbox/Projekter/Diverse/PitaPython/eksempler'
+let g:netrw_dirhist_4='/home/martin/Dropbox/Projekter/Diverse/PitaPython/opgaver/part2'
+let g:netrw_dirhist_5='/home/martin/Dropbox/Projekter/Diverse/PitaPython/opgaver/del1/løsninger'
+let g:netrw_dirhist_6='/home/martin/Dropbox/Projekter/Diverse/dotfiles/.config/nvim'
