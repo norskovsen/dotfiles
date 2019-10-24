@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "TODO"
 
-# Link repos
 ln -s ~/Dropbox/Repos ~/Repos
+ln -s ~/Dropbox/Diverse ~/Diverse
 
 # Link documents
 sudo rm -rf ~/Documents
@@ -27,18 +27,9 @@ sudo ln -s ~/Dropbox/Projekter/Diverse/dotfiles/dunstrc /etc/xdg/dunst/dunstrc
 # Link i3exit
 sudo ln -s ~/Dropbox/Projekter/Diverse/dotfiles/i3exit /usr/bin/i3exit
 
-# Link blurlock
-sudo ln -s ~/Dropbox/Projekter/Diverse/dotfiles/blurlock /usr/bin/blurlock
-
 # Link xmodmap
 sudo ln -s ~/Dropbox/Projekter/Diverse/dotfiles/xmodmap ~/.xmodmap 
 
 # Link config files
-cp -rs ~/Dropbox/Projekter/Diverse/dotfiles/.config/* ~/.config/
+ln -rs ~/Dropbox/Projekter/Diverse/dotfiles/.config/* ~/.config/
 
-# Install programs
-# TODO
-
-## Install i3-gaps
-## Install polybar
-## Install betterlockscreen
