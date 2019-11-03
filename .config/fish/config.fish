@@ -1,5 +1,5 @@
 # file: ~/.bash_profile
-set -gx GOROOT /usr/local/go            
+set -gx GOROOT /usr/lib/go            
 set -gx GOPATH ~/.gocode
 
 set -gx PATH $PATH $GOROOT/bin
@@ -8,6 +8,7 @@ set -gx PATH $PATH /opt/gradle/gradle-5.0/bin
 set -gx PATH $PATH /home/martin/.local/bin 
 set -gx PATH $PATH /home/martin/.npm-global/bin
 set -gx PATH $PATH /usr/local/texlive/2019/bin/x86_64-linux
+set -gx PATH $PATH /var/lib/snapd/snap/bin
 
 set fish_greeting
 
@@ -45,7 +46,7 @@ alias zzz "systemctl suspend"
 alias gimmeh "sudo apt install"
 alias timer "java -jar ~/Dropbox/UNI/Programmer/Eksamenstimer.jar & disown"
 alias dubidub "mplayer ~/Diverse/dudidud.mp3 -ss 04 -endpos 0.7 > /dev/null 2>&1"
-alias top "cat ~/Diverse/top.txt"
+alias top "chafa ~/Diverse/top.jpg"
 alias ccat='pygmentize -g'
 alias bbdownload '/home/martin/Dropbox/Projekter/Python/Blackboard-Scripts/download.py'
 alias http-server 'python3 -m http.server'
