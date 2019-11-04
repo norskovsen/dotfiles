@@ -1,5 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhistcnt =3
-let g:netrw_dirhist_3='/usr/share/doc/wpa_supplicant'
-let g:netrw_dirhist_2='/home/martin/Dropbox/Projekter/Diverse/dotfiles/.config/fish'
-let g:netrw_dirhist_1='/home/martin/Dropbox/Repos/auprint'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/etc/xdg/dunst'
