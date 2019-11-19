@@ -1,15 +1,4 @@
 # file: ~/.bash_profile
-set -gx GOROOT /usr/lib/go            
-set -gx GOPATH ~/.gocode
-
-set -gx PATH $PATH $GOROOT/bin
-set -gx PATH $PATH $GOPATH/bin
-set -gx PATH $PATH /opt/gradle/gradle-5.0/bin
-set -gx PATH $PATH /home/martin/.local/bin 
-set -gx PATH $PATH /home/martin/.npm-global/bin
-set -gx PATH $PATH /usr/local/texlive/2019/bin/x86_64-linux
-set -gx PATH $PATH /var/lib/snapd/snap/bin
-
 set fish_greeting
 
 function mltø
@@ -52,3 +41,8 @@ alias bbdownload '/home/martin/Dropbox/Projekter/Python/Blackboard-Scripts/downl
 alias http-server 'python3 -m http.server'
 alias fix-caps 'setxkbmap -option ctrl:swapcaps'
 alias fix-network 'systemctl restart network-manager'
+alias plz 'sudo'
+
+function fish_right_prompt
+  #intentionally left blank
+end

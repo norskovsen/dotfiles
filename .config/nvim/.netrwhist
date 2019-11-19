@@ -1,3 +1,7 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
-let g:netrw_dirhist_1='/etc/xdg/dunst'
+let g:netrw_dirhist_cnt =5
+let g:netrw_dirhist_1='/home/martin/Proj/hotciv12/src'
+let g:netrw_dirhist_2='/home/martin/Proj/hotciv12/src/main'
+let g:netrw_dirhist_3='/home/martin/Proj/hotciv12/src/main/java'
+let g:netrw_dirhist_4='/home/martin/Proj/hotciv12/src/main/java/hotciv'
+let g:netrw_dirhist_5='/home/martin/Proj/hotciv12/src/main/java/hotciv/broker'
