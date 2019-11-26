@@ -1,6 +1,8 @@
 # file: ~/.bash_profile
 set fish_greeting
 
+set -gx PATH $PATH /opt/gradle/gradle-5.6.4/bin
+
 function mltø
 	 cd ~/Dropbox/UNI/S5/Machine\ Learning/TØ
 	 jupyter notebook
@@ -36,6 +38,7 @@ alias gimmeh "sudo apt install"
 alias timer "java -jar ~/Dropbox/UNI/Programmer/Eksamenstimer.jar & disown"
 alias dubidub "mplayer ~/Diverse/dudidud.mp3 -ss 04 -endpos 0.7 > /dev/null 2>&1"
 alias top "chafa ~/Diverse/top.jpg"
+alias høker "chafa ~/Diverse/hoeker.png"
 alias ccat='pygmentize -g'
 alias bbdownload '/home/martin/Dropbox/Projekter/Python/Blackboard-Scripts/download.py'
 alias http-server 'python3 -m http.server'
