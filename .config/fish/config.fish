@@ -45,6 +45,7 @@ alias http-server 'python3 -m http.server'
 alias fix-caps 'setxkbmap -option ctrl:swapcaps'
 alias fix-network 'systemctl restart network-manager'
 alias plz 'sudo'
+alias copy 'xclip -sel clip'
 
 function fish_right_prompt
   #intentionally left blank
