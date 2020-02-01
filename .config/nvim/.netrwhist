@@ -1,7 +1,7 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/martin/Proj/hotciv12/src'
-let g:netrw_dirhist_2='/home/martin/Proj/hotciv12/src/main'
-let g:netrw_dirhist_3='/home/martin/Proj/hotciv12/src/main/java'
-let g:netrw_dirhist_4='/home/martin/Proj/hotciv12/src/main/java/hotciv'
-let g:netrw_dirhist_5='/home/martin/Proj/hotciv12/src/main/java/hotciv/broker'
+let g:netrw_dirhist_1='/home/martin/Dropbox/UNI/Instruktor/IPSA20/my_impl'
+let g:netrw_dirhist_2='/home/martin/Dropbox/UNI/Instruktor/IPSA20'
+let g:netrw_dirhist_3='/home/martin/Dropbox/UNI/Instruktor/IPSA20/exercises'
+let g:netrw_dirhist_4='/home/martin/Dropbox/UNI/Instruktor/IPSA20/exercises/02_control_if_while'
+let g:netrw_dirhist_5='/home/martin/Dropbox/UNI/S8/Language-Based Security/Uge1'

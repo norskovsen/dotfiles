@@ -46,7 +46,23 @@ alias fix-caps 'setxkbmap -option ctrl:swapcaps'
 alias fix-network 'systemctl restart network-manager'
 alias plz 'sudo'
 alias copy 'xclip -sel clip'
+alias sound-reset 'killall volumeicon ; env Exec=env GTK_THEME=Arc:dark volumeicon & disown'
+
+# Notifications
+alias do-not-disturb 'killall -SIGUSR1 dunst'
+alias disable-do-not-disturb 'killall -SIGUSR2 dunst'
+
+# Programs
+alias eksamenstimer 'gradle -p ~/Dropbox/UNI/Programmer/MultipleChoiceTimer/ run'
+alias sympy 'ipython3 -i ~/Dropbox/Projekter/Python/sympy_prompt.py'
+
+# Radio
+alias p1 'mplayer -playlist ~/Documents/Radio/p1.mp3.m3u'
+alias p2 'mplayer -playlist ~/Documents/Radio/p2.mp3.m3u'
+alias p3 'mplayer -playlist ~/Documents/Radio/p3.mp3.m3u'
+alias p4 'mplayer -playlist ~/Documents/Radio/p4-ostjylland.mp3.m3u'
 
 function fish_right_prompt
   #intentionally left blank
 end
+
