@@ -2,6 +2,7 @@
 set fish_greeting
 
 set -gx PATH $PATH /opt/gradle/gradle-5.6.4/bin
+#set -gx TROUPE ~/Repos/Troupe
 
 function mltø
 	 cd ~/Dropbox/UNI/S5/Machine\ Learning/TØ
@@ -28,7 +29,7 @@ end
 alias ls "ls -B"
 alias weather "curl wttr.in"
 alias xclip "xclip -sel clip"
-alias ipy "ipython"
+alias ipy "ipython3"
 alias l "ls -lh"
 alias vi "nvim"
 alias open "xdg-open"
@@ -36,7 +37,6 @@ alias aflevering "~/Dropbox/UNI/.aflevering.py"
 alias zzz "systemctl suspend"
 alias gimmeh "sudo apt install"
 alias timer "java -jar ~/Dropbox/UNI/Programmer/Eksamenstimer.jar & disown"
-alias dubidub "mplayer ~/Diverse/dudidud.mp3 -ss 04 -endpos 0.7 > /dev/null 2>&1"
 alias top "chafa ~/Diverse/top.jpg"
 alias høker "chafa ~/Diverse/hoeker.png"
 alias ccat='pygmentize -g'
@@ -62,7 +62,17 @@ alias p2 'mplayer -playlist ~/Documents/Radio/p2.mp3.m3u'
 alias p3 'mplayer -playlist ~/Documents/Radio/p3.mp3.m3u'
 alias p4 'mplayer -playlist ~/Documents/Radio/p4-ostjylland.mp3.m3u'
 
+# Sounds
+alias louder '~/Diverse/musicify'
+alias dubidub "mplayer ~/Diverse/dudidud.mp3 -ss 04 -endpos 0.7 > /dev/null 2>&1"
+alias dramatic "mplayer ~/Diverse/sounds/dramatic.mp3 > /dev/null 2>&1"
+alias bitch "mplayer ~/Diverse/sounds/bitch.mp3 > /dev/null 2>&1"
+alias yes "mplayer ~/Diverse/sounds/yes.mp3 -ss 01 > /dev/null 2>&1"
+
 function fish_right_prompt
   #intentionally left blank
 end
 
+# Troupe
+alias troupe-local   $TROUPE'local.sh'
+alias troupe-network $TROUPE'network.sh'

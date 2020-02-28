@@ -16,10 +16,13 @@ set expandtab
 set autoindent
 set smartindent
 set cindent
+set hidden
 
 set visualbell t_vb= 
 set novisualbell    
 set mouse=a
+set autochdir
+set omnifunc=syntaxcomplete#Complete
 
 " Plugins
 set nocompatible
@@ -55,6 +58,10 @@ Plugin 'plasticboy/vim-markdown'
 " Markdown preview
 Plugin 'JamshedVesuna/vim-markdown-preview'
 let vim_markdown_preview_github=1
+
+" HTML
+Plugin 'alvan/vim-closetag'
+Plugin 'mattn/emmet-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -97,3 +104,12 @@ autocmd FileType java setlocal omnifunc=javacomplete#Complete
 
 set completeopt-=preview
 set guioptions+=a
+
+" Spell check
+command Dklang setlocal spelllang=da
+command Spellcommands setlocal spell | setlocal linebreak
+autocmd BufRead,BufNewFile *.txt Spellcommands
+autocmd BufRead,BufNewFile *.org Spellcommands
+autocmd BufRead,BufNewFile *.md  Spellcommands
+autocmd BufRead,BufNewFile *.tex Spellcommands
+autocmd BufRead,BufNewFile comments.txt Dklang

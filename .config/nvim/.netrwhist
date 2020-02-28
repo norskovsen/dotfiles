@@ -1,7 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/martin/Dropbox/UNI/Instruktor/IPSA20/my_impl'
-let g:netrw_dirhist_2='/home/martin/Dropbox/UNI/Instruktor/IPSA20'
-let g:netrw_dirhist_3='/home/martin/Dropbox/UNI/Instruktor/IPSA20/exercises'
-let g:netrw_dirhist_4='/home/martin/Dropbox/UNI/Instruktor/IPSA20/exercises/02_control_if_while'
-let g:netrw_dirhist_5='/home/martin/Dropbox/UNI/S8/Language-Based Security/Uge1'
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/martin/Dropbox/Repos/lange-links/templates'
+let g:netrw_dirhist_2='/home/martin/Dropbox/Repos/lange-links/static'
+let g:netrw_dirhist_3='/home/martin/Dropbox/Repos/lange-links/static/css'
+let g:netrw_dirhist_4='/home/martin/Dropbox/Repos/lange-links/static'
+let g:netrw_dirhist_5='/home/martin/Dropbox/UNI/Instruktor/IPSA20/exercises'
+let g:netrw_dirhist_6='/home/martin/Dropbox/UNI/Instruktor/IPSA20/exercises/10_lambda'
+let g:netrw_dirhist_7='/home/martin/.config'
