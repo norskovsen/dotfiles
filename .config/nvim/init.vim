@@ -50,6 +50,8 @@ Plugin 'ap/vim-css-color'
 Plugin 'itchyny/vim-haskell-indent'
 Plugin 'eagletmt/ghcmod-vim'
 Plugin 'dag/vim-fish'
+Plugin 'jez/vim-better-sml'
+Plugin 'BrandonRoehl/auto-omni'
 
 " Markdown
 Plugin 'godlygeek/tabular'
@@ -95,6 +97,7 @@ let g:quickrun_known_file_types = {
         \"php": ["!php %"],
         \"vim": ["source %"],
         \"py": ["!python3 %"],
+        \"trp": ["!~/Repos/Troupe/local.sh %"],
     \}
 
 nnoremap <F5> :QuickRun<cr>
@@ -112,4 +115,11 @@ autocmd BufRead,BufNewFile *.txt Spellcommands
 autocmd BufRead,BufNewFile *.org Spellcommands
 autocmd BufRead,BufNewFile *.md  Spellcommands
 autocmd BufRead,BufNewFile *.tex Spellcommands
+
+" Afleveringer
 autocmd BufRead,BufNewFile comments.txt Dklang
+
+" Troupe
+au BufRead,BufNewFile *.trp set filetype=troupe
+au! Syntax troupe source ~/.config/nvim/troupe.vim
+

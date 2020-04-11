@@ -1,0 +1,12 @@
+# -*- mode: snippet -*-
+# name: cases
+# key: cases
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+\begin{equation*}
+	fib(n) =
+		\begin{cases}
+			\mbox{$1$} & \mbox{hvis $n=0,1$} \\
+			\mbox{$fib(n-1)+fib(n-2)$} & \mbox{hvis $n>1$} \\
+		\end{cases}
+\end{equation*}    

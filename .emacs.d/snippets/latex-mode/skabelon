@@ -1,0 +1,20 @@
+# -*- mode: snippet -*-
+# name: skabelon
+# key: skabelon
+# expand-env: ((yas-indent-line 'fixed))
+# --
+\documentclass[a4, danish]{article}
+
+\usepackage{import}
+\usepackage{import} \import{/Users/Martin/Dropbox/Dokumenter/preamble/}{preamble_dk.tex}
+
+\settitle{Aflevering x}{Kursus}
+\addauth{Martin Nørskov Jensen}{201610882@post.au.dk}{\, au553262}
+
+\begin{document}
+
+\maketitle
+
+
+\end{document}
+

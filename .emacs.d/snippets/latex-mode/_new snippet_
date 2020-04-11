@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: picture
+# key: pic
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{billede}
+	\caption{Tekst til billede\label{label}}
+\end{figure}

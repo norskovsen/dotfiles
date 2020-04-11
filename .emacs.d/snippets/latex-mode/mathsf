@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: mathsf
+# key: s
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+\mathsf{$0}

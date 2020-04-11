@@ -1,0 +1,83 @@
+#! /bin/sh
+
+sxhkd &
+
+bspc monitor -g 1920x1200+0+0
+
+bspc monitor -d 1 2 3 4 5 6 7 8 9
+
+bspc config border_width         0
+bspc config window_gap           5
+
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      false
+bspc config focus_follows_pointer true
+
+
+# autostart applications
+nitrogen --restore &
+nm-applet &
+xfce4-power-manager &
+xfce4-clipman &
+ff-theme-util &
+fix_xcursor &
+/$HOME/.config/polybar/launch.sh &
+dropbox start &
+blueman-applet &
+Exec=env GTK_THEME=Arc:dark volumeicon &
+compton --config ~/.config/compton.conf -b &
+libinput-gestures-setup start &
+ulauncher --hide-window &
+autorandr --change &
+mailspring -b  &
+redshift-gtk -l 56:10 &
+dunst &
+unclutter &
+xsetroot -cursor_name left_ptr &
+
+
+bspc rule -a Chromium desktop=^2
+#for_window [title="alsamixer"] floating enable border pixel 1
+#for_window [class="Calamares"] floating enable border normal
+#for_window [class="Clipgrab"] floating enable
+#for_window [title="File Transfer*"] floating enable
+#for_window [title="win0"] floating enable 
+#for_window [title="Bluetooth Devices"] floating enable
+#for_window [title="JetBrains Toolbox"] floating enable 
+#for_window [class="Galculator"] floating enable border pixel 1
+#for_window [class="gparted"] floating enable border normal
+#for_window [title="i3_help"] floating enable sticky enable border normal
+#for_window [class="Lightdm-gtk-greeter-settings"] floating enable
+#for_window [class="Lxappearance"] floating enable sticky enable border normal
+#for_window [class="Manjaro-hello"] floating enable
+#for_window [class="Manjaro Settings Manager"] floating enable border normal
+#for_window [title="MuseScore: Play Panel"] floating enable
+#for_window [class="Nitrogen"] floating enable sticky enable border normal
+#for_window [class="Oblogout"] fullscreen enable
+#for_window [class="octopi"] floating enable
+#for_window [title="About Pale Moon"] floating enable
+#for_window [class="Pamac-manager"] floating enable
+#for_window [class="Pavucontrol"] floating enable
+#for_window [class="qt5ct"] floating enable sticky enable border normal
+#for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+#for_window [class="Simple-scan"] floating enable border normal
+#for_window [class="(?i)System-config-printer.py"] floating enable border normal
+#for_window [class="Skype"] floating enable border normal
+#for_window [class="Thus"] floating enable border normal
+#for_window [class="Timeset-gui"] floating enable border normal
+##for_window [class="(?i)virtualbox"] floating enable border normal
+#for_window [class="Xfburn"] floating enable
+#for_window [title="Ulauncher(?i)"] floating enable
+#for_window [title="Steam Guard(?i)"] floating enable
+#for_window [title="Steam - News(?i)"] floating enable
+#for_window [title="Friends List"] floating enable
+#for_window [title="Pomodoro"] floating enable 
+#for_window [title="Network Connections"] floating enable border normal
+#for_window [title="Kite(?i)"] floating enable border normal
+#for_window [title="Cisco AnyConnect(?i)"] floating enable border normal
+#for_window [title="Software & Updates"] floating enable border normal
+#for_window [title="Mathpix Snipping Tool"] floating enable border normal
+#for_window [title="Click and/or drag"] floating enable border normal
+#for_window [title="(float)"] floating enable border normal
+#for_window [title="Calculator"] floating enable

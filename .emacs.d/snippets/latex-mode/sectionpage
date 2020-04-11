@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: sectionpage
+# key: secp
+# expand-env: ((yas-indent-line 'fixed))
+# --
+\section{${1:name}}
+\newpage

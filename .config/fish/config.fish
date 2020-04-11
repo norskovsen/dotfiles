@@ -74,5 +74,7 @@ function fish_right_prompt
 end
 
 # Troupe
-alias troupe-local   $TROUPE'local.sh'
+alias troupe-local $TROUPE'local.sh'
 alias troupe-network $TROUPE'network.sh'
+
+# System

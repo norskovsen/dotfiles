@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: texttt
+# key: ttt
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+\texttt{$0}

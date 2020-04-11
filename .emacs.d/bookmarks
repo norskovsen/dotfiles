@@ -1,0 +1,315 @@
+;;;; Emacs Bookmark Format Version 1 ;;;; -*- coding: utf-8 -*- 
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("Program Analysis and Verification Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S7/Program-Analysis-and-Verification/Program-Analysis-and-Verification.org")
+ (front-context-string . "* Introduction\n-")
+ (rear-context-string)
+ (position . 1))
+("Cryptology Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S7/Cryptology/Cryptology.org")
+ (front-context-string . "* Modern Symmetr")
+ (rear-context-string . " 16 iterations\n\n")
+ (position . 16260))
+("Algebra Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S7/Algebra/Algebra.org")
+ (front-context-string . "* Generelt\n- *In")
+ (rear-context-string)
+ (position . 1))
+("Program Analysis and Verification"
+ (filename . "~/Dropbox/UNI/S7/Program Analysis and Verification/")
+ (front-context-string . "Uge1\n  drwxr-xr-")
+ (rear-context-string . "32 Oct 24 15:05 ")
+ (position . 266))
+("Cryptology"
+ (filename . "~/Dropbox/UNI/S7/Cryptology/")
+ (front-context-string . "Cryptography.pdf")
+ (rear-context-string . "87 Sep 29 21:07 ")
+ (position . 250))
+("Algebra"
+ (filename . "~/Dropbox/UNI/S7/Algebra/")
+ (front-context-string . "Abstract Algebra")
+ (rear-context-string . "47 Aug 24 14:33 ")
+ (position . 247))
+("S7"
+ (filename . "~/Dropbox/UNI/S7/")
+ (front-context-string . "Algebra\n  drwxr-")
+ (rear-context-string . "04 Oct 24 14:41 ")
+ (position . 220))
+("Haskell"
+ (filename . "~/Dropbox/Projekter/Haskell/")
+ (front-context-string)
+ (rear-context-string . "96 May  9 14:58 ")
+ (position . 241))
+("Optimering TØ"
+ (filename . "~/Dropbox/UNI/S6/Optimering/TØ/tø.org")
+ (front-context-string . "* Uge 9\n** Exerc")
+ (rear-context-string)
+ (position . 1))
+("Bachelor Projekt Repo"
+ (filename . "~/Dropbox/UNI/S6/Bachelor Projekt/repo/")
+ (front-context-string . ".git\n  -rw-rw-r-")
+ (rear-context-string . "96 Mar 20 11:01 ")
+ (position . 249))
+("Bachelor Projekt Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S6/Bachelor-Projekt/Bachelor-Projekt.org")
+ (front-context-string)
+ (rear-context-string . "ss and privacy \n")
+ (position . 21359))
+("Introduktion til programmering med videnskabelige anvendelser"
+ (filename . "~/Dropbox/UNI/Instruktor/Introduktion til programmering med videnskabelige anvendelser/")
+ (front-context-string . "exercises\n  drwx")
+ (rear-context-string . "96 Jan 16 21:55 ")
+ (position . 307))
+("Optimering Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S6/Optimering/Optimering.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Videnskabsteori Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S6/Videnskabsteori/Videnskabsteori.org")
+ (front-context-string)
+ (rear-context-string)
+ (position . 1))
+("Optimering"
+ (filename . "~/Dropbox/UNI/S6/Optimering/")
+ (front-context-string . "Robert+J+Vanderb")
+ (rear-context-string . "18 Jan 24  2017 ")
+ (position . 249))
+("Informationsteknologiens og datalogiens videnskabsteori og etik"
+ (filename . "~/Dropbox/UNI/S6/Informationsteknologiens og datalogiens videnskabsteori og etik/")
+ (front-context-string . ".~lock.Reading l")
+ (rear-context-string . "81 Jan 27 10:10 ")
+ (position . 294))
+("Instruktor"
+ (filename . "~/Dropbox/UNI/Instruktor/")
+ (front-context-string . "Introduction to ")
+ (rear-context-string . "96 Dec 19 14:27 ")
+ (position . 242))
+("Bachelor Projekt"
+ (filename . "~/Dropbox/UNI/S6/Bachelor Projekt/")
+ (front-context-string)
+ (rear-context-string . "96 Dec 17 22:26 ")
+ (position . 244))
+("S6"
+ (filename . "~/Dropbox/UNI/S6/")
+ (front-context-string . "Bachelor Projekt")
+ (rear-context-string . "96 Jan 21 17:58 ")
+ (position . 230))
+("Machine Learning Eksamensnoter"
+ (filename . "~/Dropbox/UNI/S5/Machine Learning/Eksamen/noter/noter.tex")
+ (front-context-string . "\\documentclass[a")
+ (rear-context-string)
+ (position . 1))
+("Distribuerede Systemer og Sikkerhed Eksamensnoter"
+ (filename . "~/Dropbox/UNI/S5/Distribuerede Systemer og Sikkerhed/Eksamen/noter/noter.tex")
+ (front-context-string . "\\documentclass[a")
+ (rear-context-string)
+ (position . 1))
+("Python"
+ (filename . "~/Dropbox/Projekter/Python/")
+ (front-context-string . "Automate\n  drwxr")
+ (rear-context-string . "96 Oct 14 20:46 ")
+ (position . 255))
+(".emacs.d"
+ (filename . "~/.emacs.d/")
+ (front-context-string . "abbrev_defs\n  -r")
+ (rear-context-string . "39 Oct 10 09:27 ")
+ (position . 234))
+("conf.org"
+ (filename . "~/.emacs.d/conf.org")
+ (front-context-string . "* Load other con")
+ (rear-context-string . "de))\n#+END_SRC\n\n")
+ (position . 6237))
+("init.el"
+ (filename . "~/.emacs.d/init.el")
+ (front-context-string . ";; Added by Pack")
+ (rear-context-string)
+ (position . 1))
+("mail-conf.el"
+ (filename . "~/.emacs.d/config/mail-conf.el")
+ (front-context-string . "nt)\n\n;; default\n")
+ (rear-context-string . "t 'mu4e-user-age")
+ (position . 86))
+("Distribuerede Systemer og Sikkerhed Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S5/Distribuerede-Systemer-og-Sikkerhed/Distribuerede-Systemer-og-Sikkerhed.org")
+ (front-context-string . "* General \n- Dea")
+ (rear-context-string)
+ (position . 1))
+("Oversættelse Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S5/Oversættelse/Oversættelse.org")
+ (front-context-string . "* Introduction (")
+ (rear-context-string)
+ (position . 1))
+("Machine Learning Notebook"
+ (filename . "~/Dropbox/Notebook/UNI/S5/Machine-Learning/Machine-Learning.org")
+ (front-context-string . "* TA Instructor ")
+ (rear-context-string)
+ (position . 1))
+("dOvs-hold-4"
+ (filename . "~/Dropbox/UNI/S5/Oversættelse/dOvs-hold-4/")
+ (front-context-string . ".git\n  -rw-r--r-")
+ (rear-context-string . "96 Sep 14 13:50 ")
+ (position . 252))
+("Oversættelse"
+ (filename . "~/Dropbox/UNI/S5/Oversættelse/")
+ (front-context-string . "Modern compiler ")
+ (rear-context-string . "31 Aug 27  2016 ")
+ (position . 255))
+("Machine Learning"
+ (filename . "~/Dropbox/UNI/S5/Machine Learning/")
+ (front-context-string . "linreg.pdf\n  drw")
+ (rear-context-string . "91 Aug 28 10:46 ")
+ (position . 255))
+("Distribuerede Systemer og Sikkerhed"
+ (filename . "~/Dropbox/UNI/S5/Distribuerede Systemer og Sikkerhed/")
+ (front-context-string . "DNO.pdf\n  -rw-rw")
+ (rear-context-string . "54 Aug 25 13:45 ")
+ (position . 274))
+("S5"
+ (filename . "~/Dropbox/UNI/S5/")
+ (front-context-string . "Distribuerede Sy")
+ (rear-context-string . "96 Sep  3 10:25 ")
+ (position . 230))
+("Cheatsheets"
+ (filename . "~/Dropbox/Notebook/CheatSheets/")
+ (front-context-string . "cheatsheet-big.p")
+ (rear-context-string . "71 Dec 21  2016 ")
+ (position . 249))
+("Notebook"
+ (filename . "~/Dropbox/Notebook/")
+ (front-context-string . "nohup.out\n  drwx")
+ (rear-context-string . "73 Apr  2 11:47 ")
+ (position . 239))
+("HTML"
+ (filename . "~/Dropbox/Projekter/HTML/")
+ (front-context-string . "intDes\n  drwxrwx")
+ (rear-context-string . "96 Dec 15  2017 ")
+ (position . 238))
+("Android"
+ (filename . "~/Dropbox/Projekter/Android/")
+ (front-context-string . "activity-lifecyc")
+ (rear-context-string . "96 Dec 15  2017 ")
+ (position . 242))
+("Projekter"
+ (filename . "~/Dropbox/Projekter/")
+ (front-context-string . "Android\n  drwxrw")
+ (rear-context-string . "96 Jun 28 23:52 ")
+ (position . 234))
+("Java"
+ (filename . "~/Dropbox/Projekter/Java/")
+ (front-context-string . "2048\n  drwxrwxr-")
+ (rear-context-string . "96 Jun 27 20:58 ")
+ (position . 253))
+("Javascript"
+ (filename . "~/Dropbox/Projekter/Javascript/")
+ (front-context-string . "Facebook-Comment")
+ (rear-context-string . "96 Dec 25  2017 ")
+ (position . 245))
+("latex.org"
+ (filename . "~/Dropbox/Dokumenter/CheatSheets/latex.org")
+ (front-context-string . "* Generelt\n- Skj")
+ (rear-context-string)
+ (position . 1))
+("terminal.org"
+ (filename . "~/Dropbox/Dokumenter/CheatSheets/terminal.org")
+ (front-context-string . "command | xclip ")
+ (rear-context-string . "into clipboard ~")
+ (position . 177))
+("emacs-cheatsheet.org"
+ (filename . "~/Dropbox/Notebook/CheatSheets/emacs-cheatsheet.org")
+ (front-context-string)
+ (rear-context-string . "\n- Rename: C-; \n")
+ (position . 6938))
+("Operativsystemer og Netværk"
+ (filename . "~/Dropbox/UNI/S4/Operativsystemer og Netværk/")
+ (front-context-string . "osm-rev1.3.pdf\n ")
+ (rear-context-string . "71 Mar 11 19:49 ")
+ (position . 266))
+("Tutor"
+ (filename . "~/Dropbox/UNI/Tutor/")
+ (front-context-string . "2017\n  drwxr-xr-")
+ (rear-context-string . "96 Feb 17 13:25 ")
+ (position . 233))
+("JacobMartinGit"
+ (filename . "~/Dropbox/UNI/JacobMartinGit/")
+ (front-context-string . ".git\n  -rw-r--r-")
+ (rear-context-string . "96 Feb  6 13:05 ")
+ (position . 242))
+("Lineær algebra"
+ (filename . "~/Dropbox/UNI/S4/Lineær algebra/")
+ (front-context-string . "LinearAlgebra_Fa")
+ (rear-context-string . "70 Jan 12 12:18 ")
+ (position . 253))
+("Eksperimentel systemudvikling"
+ (filename . "~/Dropbox/UNI/S4/Eksperimentel systemudvikling/")
+ (front-context-string . "David Et Al Beny")
+ (rear-context-string . "22 Jan 24  2017 ")
+ (position . 272))
+("Beregnelighed og logik"
+ (filename . "~/Dropbox/UNI/S4/Beregnelighed og logik/")
+ (front-context-string . "Introduction to ")
+ (rear-context-string . "66 Mar 29  2015 ")
+ (position . 261))
+("S4"
+ (filename . "~/Dropbox/UNI/S4/")
+ (front-context-string . "Beregnelighed og")
+ (rear-context-string . "96 Jan 18 16:18 ")
+ (position . 230))
+("AfleveringerHold12"
+ (filename . "~/Dropbox/UNI/AfleveringerHold12/")
+ (front-context-string . ".git\n  drwxrwxr-")
+ (rear-context-string . "96 Oct 26 12:22 ")
+ (position . 246))
+("Jupyter css"
+ (filename . "~/.jupyter/custom/custom.css")
+ (front-context-string . ".rendered_html u")
+ (rear-context-string)
+ (position . 1))
+("S3"
+ (filename . "~/Dropbox/UNI/S3/")
+ (front-context-string . ".DS_Store\n  drwx")
+ (rear-context-string . "96 29 Aug 14:31 ")
+ (position . 238))
+("config.fish"
+ (filename . "~/.config/fish/config.fish")
+ (front-context-string . "function dns\n	ne")
+ (rear-context-string)
+ (position . 1))
+("Dokumenter"
+ (filename . "~/Dropbox/Dokumenter/")
+ (front-context-string . "Bøger\n  drwxrwxr")
+ (rear-context-string . "96 Apr  4 22:33 ")
+ (position . 248))
+("Dropbox"
+ (filename . "~/Dropbox/")
+ (front-context-string . ".bash_profile\n  ")
+ (rear-context-string . "60 Nov 24 15:27 ")
+ (position . 229))
+("Q4"
+ (filename . "~/Dropbox/UNI/Q4/")
+ (front-context-string . "Algoritmer og Da")
+ (rear-context-string . "96 Apr 19 10:21 ")
+ (position . 226))
+("Q3"
+ (filename . "~/Dropbox/UNI/Q3/")
+ (front-context-string . "Algoritmer og Da")
+ (rear-context-string . "96 Apr  4 22:29 ")
+ (position . 229))
+("Q2"
+ (filename . "~/Dropbox/UNI/Q2/")
+ (front-context-string . "Calculus 2\n  drw")
+ (rear-context-string . "96 Apr  4 22:30 ")
+ (position . 229))
+("Q1"
+ (filename . "~/Dropbox/UNI/Q1/")
+ (front-context-string . "Calculus 1\n  drw")
+ (rear-context-string . "96 Apr  4 22:30 ")
+ (position . 229))
+("UNI"
+ (filename . "~/Dropbox/UNI/")
+ (front-context-string . "Aflevering5.zip\n")
+ (rear-context-string . "10 Mar  6 10:18 ")
+ (position . 241))
+)

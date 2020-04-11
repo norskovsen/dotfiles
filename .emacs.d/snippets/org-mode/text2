@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: text2
+# key: \t
+# expand-env: ((yas-indent-line 'fixed))
+# --
+\text{$1}

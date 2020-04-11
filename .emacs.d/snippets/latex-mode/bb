@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: mathbb
+# key: bb
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+\mathbb $1

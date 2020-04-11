@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: dollar
+# key: $
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+$$1$

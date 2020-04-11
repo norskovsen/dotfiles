@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: equa
+# key: equa
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+\begin{equation}
+  $0
+\end{equation}

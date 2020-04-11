@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: section
+# key: sec
+# expand-env: ((yas-indent-line 'fixed))	
+# --
+\section{$0}

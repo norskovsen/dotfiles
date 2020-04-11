@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: subsubsection
+# key: subsub
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+\subsubsection{$0}

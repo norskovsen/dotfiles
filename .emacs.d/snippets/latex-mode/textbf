@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: textbf
+# key: b
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+\textbf{$0}

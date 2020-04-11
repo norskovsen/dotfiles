@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: $time
+# key: $t
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+$\text{}	

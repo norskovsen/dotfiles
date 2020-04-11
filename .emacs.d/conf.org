@@ -1,0 +1,954 @@
+* General
+** Custom load
+#+BEGIN_SRC emacs-lisp
+	(add-to-list 'load-path "~/.emacs.d/lisp/")
+	(add-to-list 'load-path "~/.emacs.d/config/")
+#+END_SRC
+	
+** Configs
+#+BEGIN_SRC emacs-lisp
+	(setq initial-scratch-message nil)
+	(setq inhibit-startup-message t); dont show the GNU splash screen
+	(transient-mark-mode t); show selection from mark
+	(setq visible-bell 1); turn off bip warnings
+	(show-paren-mode t); turn on highlight paren mode
+	(fset 'yes-or-no-p 'y-or-n-p); use y and n for questions
+	(global-font-lock-mode t); enable syntax highlighting
+	(icomplete-mode 99); better buffer switching
+	(set 'gc-cons-threshold 100000000) 
+	(setq make-backup-files nil)
+	(setq backup-directory-alist
+				`((".*" ., temporary-file-directory)))
+	(setq auto-save-file-name-transforms
+				`((".*", temporary-file-directory t)))
+	(setq vc-follow-symlinks t)
+
+	(global-visual-line-mode 1); turn on global visual linemode
+	(column-number-mode 1)
+  (setq desktop-save t)
+
+	; ; Change tabsize
+	(add-hook 'text-mode-hook
+			'(lambda ()
+				 (setq ident-tabs-mode nil)
+				 (setq tab-width 2)
+				 (setq indent-line-function(quote insert-tab))))
+
+	;; Disable electric indent mode
+	(when(fboundp 'electric-indent-mode) (electric-indent-mode -1))
+
+	;; Disable xwidget query
+	(setq xwidget-query-on-exit-flag nil)
+	; ; (fringe-mode 0)
+	(require 'iso-transl)
+#+END_SRC
+
+** Line numbers
+#+BEGIN_SRC emacs-lisp
+	(use-package nlinum-relative
+		:config  
+		(add-hook 'prog-mode-hook 'nlinum-relative-mode)
+		(setq nlinum-relative-redisplay-delay 0)
+		(setq nlinum-relative-current-symbol "0")
+		(setq nlinum-relative-offset 0)
+		;; (add-hook 'LaTeX-mode-hook 'nlinum-mode)
+		(add-hook 'python-mode-hook 'nlinum-mode)
+		(add-hook 'web-mode-hook 'nlinum-mode)
+		(add-hook 'js2-mode-hook 'nlinum-mode)
+		(add-hook 'emacs-lisp-mode 'nlinum-mode)
+		(add-hook 'go-mode-hook 'nlinum-mode)
+		(add-hook 'mu4e-main-mode-hook 'nlinum-mode)
+		(add-hook 'mu4e-headers-mode 'nlinum-mode)
+		(add-hook 'go-mode-hook 'nlinum-mode)
+		(add-hook 'sml-mode-hook 'nlinum-mode)
+		(add-hook 'tiger-mode-hook 'nlinum-mode)
+		(add-hook 'mu4e-compose-mode 'nlinum-mode))
+
+#+END_SRC
+
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+  (use-package flycheck
+    :ensure t)
+  ;(global-flycheck-mode)
+  (with-eval-after-load 'flycheck
+          (add-hook 'flycheck-mode-hook #'flycheck-pycheckers-setup))
+  (ido-mode)
+#+END_SRC
+
+** Helm
+#+BEGIN_SRC emacs-lisp
+  (use-package helm
+               :ensure t)
+  (global-set-key (kbd "M-y") 'helm-show-kill-ring)
+  (global-set-key (kbd "M-x") 'helm-M-x)
+#+END_SRC
+
+** Recent files
+#+BEGIN_SRC emacs-lisp
+	(recentf-mode 1)
+	(setq recentf-max-menu-items 25)
+	(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+	(setq exec-path (append exec-path '("/usr/local/bin/")))
+#+END_SRC
+
+** Magit
+#+BEGIN_SRC emacs-lisp
+  (use-package magit
+               :ensure t)
+  (global-set-key (kbd "C-x g") 'magit-status)
+  (global-magit-file-mode)
+#+END_SRC
+
+** PDF-tooks
+#+BEGIN_SRC emacs-lisp
+  (use-package pdf-tools
+               :ensure t)
+  (pdf-tools-install)
+  (setq pdf-view-resize-factor 1.1)
+#+END_SRC
+
+** YASnippet
+#+BEGIN_SRC emacs-lisp
+  (use-package yasnippet
+               :ensure t
+               :config (yas-global-mode 1))
+#+END_SRC
+
+** Spelling
+*** iSpell
+#+BEGIN_SRC emacs-lisp
+	(setenv "DICTIONARY" "en_GB")
+	
+	(setq ispell-program-name "/usr/bin/aspell")
+	(defun dk-dir()
+		"Change iSpell dictionary to danish."
+		(interactive)
+		(ispell-change-dictionary "danish"))
+
+	(defun eng-dir()
+		"Change iSpell dictionary to english."
+		(interactive)
+		(ispell-change-dictionary "english"))
+#+END_SRC
+
+*** Flyspell
+#+BEGIN_SRC emacs-lisp
+	(add-hook 'org-mode-hook 'flyspell-mode)
+#+END_SRC
+
+** Bookmarks
+#+BEGIN_SRC emacs-lisp
+	(use-package bookmark
+		:config (setq bookmark-save-flag 1))
+#+END_SRC
+
+** TODO mode
+#+BEGIN _SRC emacs-lisp
+  (use-package hl-todo
+               :ensure t)
+  (global-hl-todo-mode)
+#+END_SRC
+
+** Asme
+#+BEGIN_SRC emacs-lisp
+	(add-hook 'asm-mode-set-comment-hook
+			'(lambda ()
+				 (setq asm-comment-char ?# )))
+#+END_SRC
+
+** LLVM-mode
+#+BEGIN_SRC emacs-lisp
+(require 'llvm-mode )
+#+END_SRC
+
+** Doom
+#+BEGIN_SRC emacs-lisp
+  (use-package doom-themes
+               :ensure t
+               :config
+          (setq doom-themes-enable-bold t
+                  doom-themes-enable-italic t)
+
+          (load-theme 'doom-one t)        
+          (doom-themes-visual-bell-config)        
+
+          (doom-themes-neotree-config)
+          (doom-themes-org-config))
+
+
+  (use-package doom-modeline
+               :ensure t
+               :config
+          (doom-modeline-init)
+          (setq doom-modeline-python-executable "/usr/bin/python3.7")
+          )
+#+END_SRC
+
+** Multi term
+#+BEGIN_SRC emacs-lisp
+	(setq multi-term-program "/bin/bash")
+#+END_SRC
+
+** Hide mode line
+#+BEGIN_SRC emacs-lisp
+	(add-hook 'neotree-mode-hook #'hide-mode-line-mode)
+	(add-hook 'inferior-python-mode-hook #'hide-mode-line-mode)
+	(add-hook 'shell-mode-hook #'hide-mode-line-mode)
+	(add-hook 'eshell-mode-hook #'hide-mode-line-mode)
+
+#+END_SRC
+
+** Display buffer
+#+BEGIN_SRC emacs-lisp
+	(add-to-list 'display-buffer-alist
+							 `(, (rx bos "*Python*" eos)
+								 (display-buffer-reuse-window
+									display-buffer-in-side-window)
+								 (reusable-frames . visible)
+								 (side            . bottom)
+								 (window-height   . 0.3)))
+	
+	(add-to-list 'display-buffer-alist
+							 `(, (rx bos "*shell*" eos)
+								 (display-buffer-reuse-window
+									display-buffer-in-side-window)
+								 (reusable-frames . visible)
+								 (side            . bottom)
+								 (window-height   . 0.3)))
+#+END_SRC
+
+** Evil
+#+BEGIN_SRC emacs-lisp
+  (setq evil-want-keybinding nil)
+  (use-package nlinum-relative
+               :ensure t)
+
+  (use-package evil-matchit
+               :ensure t)
+
+  (use-package evil 
+          :ensure t
+          :config 
+          (add-hook 'evil-mode-hook
+                          (lambda ()
+                                  (define-key evil-insert-state-map (kbd "TAB") 'indent-for-tab-command)
+                                  (define-key evil-normal-state-map (kbd "TAB") 'indent-for-tab-command))
+                          (nlinum-relative-on)
+                          (nlinum-relative-setup-evil))
+          (evil-mode)
+          (global-evil-matchit-mode 1))
+
+
+  (use-package evil-collection
+          :after evil
+          :ensure t
+          :config
+          (evil-collection-init))
+
+
+  (use-package evil-org
+          :ensure t
+          :config
+          (add-hook 'org-mode-hook 'evil-org-mode)
+          (evil-org-set-key-theme))
+
+  (use-package  evil-org-agenda
+          :config
+          (evil-org-agenda-set-keys))
+
+  (use-package  evil-magit
+          :ensure t
+          :config
+          (setq evil-magit-state 'motion))
+#+END_SRC
+
+** Quickrun
+#+BEGIN_SRC emacs-lisp
+	(global-set-key (kbd "C-c r") 'quickrun)
+#+END_SRC
+	
+** Helper
+#+BEGIN_SRC emacs-lisp
+(defmacro add-hook-run-once (hook function &optional append local)
+  "Like add-hook, but remove the hook after it is called"
+  (let ((sym (make-symbol "#once")))
+    `(progn
+       (defun ,sym ()
+         (remove-hook ,hook ',sym ,local)
+         (funcall ,function))
+       (add-hook ,hook ',sym ,append ,local))))
+#+END_SRC
+	
+** Font
+#+BEGIN_SRC emacs-lisp
+(set-face-attribute 'default nil
+                    :family "Ubuntu Mono"
+                    :height 128
+                    :weight 'medium
+                    :width 'medium)
+#+END_SRC	
+
+* Tiger
+#+BEGIN_SRC emacs-lisp
+	(autoload 'tiger-mode "tiger" "Load tiger-mode" t)
+	(add-to-list 'auto-mode-alist '("\\.ti[gh]$" . tiger-mode))
+#+END_SRC
+
+* Company
+** General
+#+BEGIN_SRC emacs-lisp
+  (use-package company
+               :ensure t)
+  (setq company-tooltip-limit 20); bigger popup window
+  (setq company-dabbrev-downcase 0)
+  (setq company-idle-delay 0.1)
+  (setq company-echo-delay 0); remove annoying blinking
+  (setq company-begin-commands '(self-insert-command)); start autocompletion only after typing
+
+  (add-hook 'after-init-hook 'global-company-mode)
+  (global-set-key(kbd "C-?") 'company-complete)
+#+END_SRC
+
+** LaTeX
+#+BEGIN_SRC emacs-lisp
+  (use-package company-auctex
+               :ensure t
+          :config
+          (add-hook-run-once 'LaTeX-mode-hook (lambda ()
+                                          (company-auctex-init))))
+#+END_SRC
+
+** Python
+#+BEGIN_SRC emacs-lisp
+	(defun a-python-mode-hook ()
+		(add-to-list 'company-backends 'company-jedi))
+
+	(add-hook 'python-mode-hook 'a-python-mode-hook)
+#+END_SRC
+
+** Javascript
+#+BEGIN_SRC emacs-lisp
+	(add-to-list 'company-backends 'company-tern)
+	(add-hook 'js2-mode-hook (lambda ()
+					 (tern-mode)
+					 (company-mode)))
+#+END_SRC
+
+** HTML
+#+BEGIN_SRC emacs-lisp
+	(add-to-list 'company-backends 'company-web-html)
+	(add-to-list 'company-backends 'company-web-jade)
+	(add-to-list 'company-backends 'company-web-slim)
+#+END_SRC
+
+** GO
+#+BEGIN_SRC emacs-lisp
+	(add-hook 'go-mode-hook (lambda ()
+					(set (make-local-variable 'company-backends) '(company-go))
+					(company-mode)))
+#+END_SRC
+
+** SGML
+#+BEGIN_SRC emacs-lisp
+	(use-package  company-sml 
+		:config (add-hook 'company-sml 'company-sml-setup))
+#+END_SRC
+
+** Org
+ #+BEGIN_SRC emacs-lisp
+	 (add-hook 'org-mode-hook
+			 (lambda ()
+				 (make-local-variable 'company-backends)
+				 (add-to-list 'company-backends 'company-ispell)))
+ #+END_SRC
+
+** Haskell
+To use this type of autocomplete the following should be installed: https://gist.github.com/DarinM223/b375a1be3fb9381a76f748f085cb1c8e	
+#+BEGIN_SRC emacs-lisp
+	(use-package company-ghc
+		:ensure t
+		:config	
+		(add-to-list 'company-backends 'company-ghc)
+		(autoload 'ghc-init "ghc" nil t)
+		(autoload 'ghc-debug "ghc" nil t)
+		(add-hook 'haskell-mode-hook (lambda () (ghc-init))))
+#+END_SRC
+	
+* GO
+** Variables
+#+BEGIN_SRC emacs-lisp
+	(setenv "PATH" (concat(getenv "PATH") ":/usr/local/go/bin"))
+	(setq exec-path(append exec-path '("/usr/local/go/bin")))
+	(setenv "PATH" (concat(getenv "PATH") ":~/.gocode/bin"))
+	(setq exec-path(append exec-path '("~/.gocode/bin")))
+#+END_SRC
+
+** Hook
+#+BEGIN_SRC emacs-lisp
+	(defun my-go-mode-hook ()
+		(setq tab-width 4)
+		(setq gofmt-command "goimports")
+		(add-hook 'before-save-hook 'gofmt-before-save)
+
+		(local-set-key(kbd "M-.") 'godef-jump)
+		(local-set-key(kbd "M-*") 'pop-tag-mark)
+		(local-set-key(kbd "C-c C-r") 'go-remove-unused-imports)
+		(local-set-key(kbd "C-c C-g") 'go-goto-imports)
+		(local-set-key(kbd "C-c C-f") 'gofmt)
+		(local-set-key(kbd "C-c C-k") 'godoc)
+		(local-set-key(kbd "C-c b") 'go-run)
+	)
+
+	(add-hook 'go-mode-hook 'my-go-mode-hook)
+#+END_SRC
+
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+;  (add-to-list 'load-path "~/.gocode/src/github.com/dougm/goflymake")
+;  (use-package  go-flycheck)
+#+END_SRC
+
+* Web
+** Web mode
+#+BEGIN_SRC emacs-lisp
+	(use-package  web-mode
+		:config
+		(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+		(defun my-web-mode-hook()
+			"Hooks for Web mode."
+			(setq web-mode-markup-indent-offset 2))
+		(add-hook 'web-mode-hook  'my-web-mode-hook))
+#+END_SRC
+
+** Zencoding
+#+BEGIN_SRC emacs-lisp
+	(use-package  zencoding-mode 
+		:config
+		(add-hook 'web-mode-hook 'zencoding-mode)
+		(add-hook 'css-mode-hook 'rainbow-mode))
+#+END_SRC
+
+** Exec Path
+#+BEGIN_SRC emacs-lisp
+	(setq exec-path(append exec-path '("/usr/local/bin/")))
+#+END_SRC
+
+** Pug mode
+#+BEGIN_SRC emacs-lisp
+	(use-package pug-mode
+		:ensure t 
+		:config
+		(setq pug-tab-width 2)
+		(add-hook 'pug-mode-hook (lambda ()
+						(setq indent-tabs-mode nil))))
+#+END_SRC
+
+* JavaScript
+** JS2 Mode
+#+BEGIN_SRC emacs-lisp
+	(use-package js-comint 
+		:ensure t
+		:config
+		(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+		(add-hook 'js2-mode-hook
+				(lambda ()
+					(local-set-key(kbd "C-x C-e") 'js-send-last-sexp)
+					(local-set-key(kbd "C-M-x") 'js-send-last-sexp-and-go)
+					(local-set-key(kbd "C-c b") 'js-send-buffer)
+					(local-set-key(kbd "C-c C-b") 'js-send-buffer-and-go)
+					(local-set-key(kbd "C-c l") 'js-load-file-and-go)))
+		(add-hook 'js2-mode-hook #'js2-refactor-mode))
+#+END_SRC
+
+** JS2 Refactor
+#+BEGIN_SRC emacs-lisp
+	(use-package js2-refactor
+		:ensure t
+		:config
+		(js2r-add-keybindings-with-prefix "C-c C-m"))
+#+END_SRC
+
+* Org
+** General
+#+BEGIN_SRC emacs-lisp
+	(setq org-list-allow-alphabetical t)
+#+END_SRC
+
+** Shortcuts
+#+BEGIN_SRC emacs-lisp
+	(global-set-key "\C-cl" 'org-store-link)
+	(global-set-key "\C-ca" 'org-agenda)
+	(global-set-key "\C-cc" 'org-capture)
+	(global-set-key "\C-cb" 'org-switchb)
+#+END_SRC
+
+** Images
+#+BEGIN_SRC emacs-lisp
+	(defun do-org-show-all-inline-images()
+		(interactive)
+		(org-display-inline-images t t))
+	(local-set-key (kbd "C-c C-x C-v")
+					 'do-org-show-all-inline-images)
+
+	(setq org-image-actual-width '(600))
+
+	(setq org-hide-emphasis-markers t)
+#+END_SRC
+
+** Org download
+#+BEGIN_SRC emacs-lisp
+	(use-package org-download
+	:config
+		(defun org-download-hook()
+			(local-set-key (kbd "C-+") 'org-download-screenshot))
+		(add-hook 'org-mode-hook 'org-download-hook))
+#+END_SRC
+
+** Active babel languages
+#+BEGIN_SRC emacs-lisp
+	(setq org-babel-python-command "python3")
+	(org-babel-do-load-languages
+	 'org-babel-load-languages
+	 '((R . t)
+		 (python . t)
+		 (C . t)
+		 (java . t)
+		 (latex . t)
+		 (js . t)
+		 ))
+#+END_SRC
+
+** Preview size
+#+BEGIN_SRC emacs-lisp
+	(plist-put org-format-latex-options :scale 1.2)
+#+END_SRC
+
+** Flyspell
+#+BEGIN_SRC emacs-lisp
+	(add-hook 'org-mode-hook 'flyspell-mode)
+	(add-hook 'org-mode-hook 'eng-dir)
+	(add-hook 'org-mode-hook 'electric-pair-mode)
+#+END_SRC
+
+** LaTeX auto preview
+#+BEGIN_SRC emacs-lisp
+		(defvar kk/org-latex-fragment-last nil
+		"Holds last fragment/environment you were on.")
+
+	(defun kk/org-in-latex-fragment-p ()
+		"Return the point where the latex fragment begins, if inside
+		a latex fragment. Else return false"
+		(let* ((el (org-element-context))
+					 (el-type (car el)))
+			(and (or (eq 'latex-fragment el-type) (eq 'latex-environment el-type))
+					 (org-element-property :begin el))))
+
+	(defun kk/org-latex-fragment-toggle ()
+		"Toggle a latex fragment image "
+		(and (eq 'org-mode major-mode)
+				 (let ((begin (kk/org-in-latex-fragment-p)))
+					 (cond
+						;; were on a fragment and now on a new fragment
+						((and
+							;; fragment we were on
+							kk/org-latex-fragment-last
+							;; and are on a fragment now
+							begin
+
+							;; but not on the last one this is a little tricky. as you edit the
+							;; fragment, it is not equal to the last one. We use the begin
+							;; property which is less likely to change for the comparison.
+							(not (and kk/org-latex-fragment-last
+						(= begin
+				 kk/org-latex-fragment-last))))
+						 ;; go back to last one and put image back, provided there is still a fragment there
+						 (save-excursion
+							 (goto-char kk/org-latex-fragment-last)
+							 (when (kk/org-in-latex-fragment-p) (org-preview-latex-fragment))
+
+							 ;; now remove current image
+							 (goto-char begin)
+							 (let ((ov (loop for ov in (org--list-latex-overlays)
+															 if
+															 (and
+							(<= (overlay-start ov) (point))
+							(>= (overlay-end ov) (point)))
+															 return ov)))
+					 (when ov
+									 (delete-overlay ov)))
+							 ;; and save new fragment
+							 (setq kk/org-latex-fragment-last begin)))
+
+						;; were on a fragment and now are not on a fragment
+						((and
+							;; not on a fragment now
+							(not begin)
+							;; but we were on one
+							kk/org-latex-fragment-last)
+						 ;; put image back on, provided that there is still a fragment here.
+						 (save-excursion
+							 (goto-char kk/org-latex-fragment-last)
+							 (when (kk/org-in-latex-fragment-p) (org-preview-latex-fragment)))
+
+						 ;; unset last fragment
+						 (setq kk/org-latex-fragment-last nil))
+
+						;; were not on a fragment, and now are
+						((and
+							;; we were not one one
+							(not kk/org-latex-fragment-last)
+							;; but now we are
+							begin)
+						 ;; remove image
+						 (save-excursion
+							 (goto-char begin)
+							 (let ((ov (loop for ov in (org--list-latex-overlays)
+															 if
+															 (and
+							(<= (overlay-start ov) (point))
+							(>= (overlay-end ov) (point)))
+															 return ov)))
+					 (when ov
+									 (delete-overlay ov))))
+						 (setq kk/org-latex-fragment-last begin))))))
+	(add-hook 'post-command-hook 'kk/org-latex-fragment-toggle t)
+#+END_SRC
+
+** Prettify 
+#+BEGIN_SRC emacs-lisp
+	(font-lock-add-keywords 'org-mode
+				'(("^[ |\t]*\\([-]\\) "
+					 (0 (prog1 () (compose-region (match-beginning 1) (match-end 1) "•"))))))
+
+	(use-package org-bullets
+		:ensure t
+		:config
+		(add-hook 'org-mode-hook (lambda () (org-bullets-mode 1)))
+		:init
+		(setq org-bullets-bullet-list '("◉" )))
+	
+#+END_SRC	
+	
+* LaTeX
+** General
+#+BEGIN_SRC emacs-lisp
+	(setq TeX-auto-save t)
+	(setq TeX-parse-self t)
+	(setq-default TeX-master nil)
+	(setq TeX-save-query nil)
+	(setq reftex-plug-into-AUCTeX t)
+;;	(define-key TeX-mode-map (kbd "<C-dead-acute>") 'other-window)
+#+END_SRC
+
+** Hooks
+#+BEGIN_SRC emacs-lisp
+	(add-hook 'LaTeX-mode-hook 'visual-line-mode)
+	(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+	(add-hook 'LaTeX-mode-hook 'LaTeX-math-mode)
+	(add-hook 'LaTeX-mode-hook 'turn-on-reftex)
+	(add-hook 'LaTeX-mode-hook 'electric-pair-mode)
+#+END_SRC
+
+** Viewer Setup
+#+BEGIN_SRC emacs-lisp
+	(TeX-source-correlate-mode); activate forward / reverse search
+#+END_SRC
+Zathura setup  
+#+BEGIN_SRC emacs-lisp
+	;; (add-to-list 'TeX-view-program-list
+	;;              '("Zathura"
+	;;                ("zathura "
+	;;                 (mode-io-correlate " --synctex-forward %n:0:%b -x \"emacsclient+%{line} %{input}\" ")
+	;;                 " %o")
+	;;                "zathura"))
+	;; (add-to-list 'TeX-view-program-selection
+	;;              '(output-pdf "Zathura"))
+#+END_SRC
+Pdf view setup  
+#+BEGIN_SRC emacs-lisp
+;; to use pdfview with auctex
+ (setq TeX-view-program-selection '((output-pdf "PDF Tools"))
+    TeX-view-program-list '(("PDF Tools" TeX-pdf-tools-sync-view))
+    TeX-source-correlate-start-server t); ; not sure if last line is neccessary
+
+ ;; to have the buffer refresh after compilation
+ (add-hook 'TeX-after-compilation-finished-functions
+        #'TeX-revert-document-buffer)
+#+END_SRC
+
+** Word count
+#+BEGIN_SRC emacs-lisp
+	(defun latex-word-count ()
+		(interactive)
+		(shell-command (concat "/usr/local/bin/texcount.pl \""; "uncomment then options go here "
+													(buffer-file-name) "\"")))
+#+END_SRC
+
+* Python
+** Interpreter
+#+BEGIN_SRC emacs-lisp
+	(setq py-shell-switch-buffers-on-execute-p t)
+	(set-variable 'flycheck-python-mypy-args '("--ignore-missing-imports" "--check-untyped-defs"))
+
+	(setq python-shell-interpreter "ipython"
+				flycheck-python-pycompile-executable "/usr/bin/python3"			      
+				flycheck-python-mypy-executable "python3"
+				python-shell-interpreter-args "-i --simple-prompt --no-color-info"
+				python-shell-prompt-regexp "In \\[[0-9]+\\]: "
+				python-shell-prompt-block-regexp "\\.\\.\\.\\.: "
+				python-shell-prompt-output-regexp "Out\\[[0-9]+\\]: "
+				python-shell-completion-setup-code
+				"from IPython.core.completerlib import module_completion"
+				python-shell-completion-string-code
+				"';'.join(get_ipython().Completer.all_completions('''%s'''))\n"
+					)
+#+END_SRC
+** Python version	
+#+BEGIN_SRC emacs-lisp
+(setq elpy-rpc-python-command "python3")
+#+END_SRC
+
+** Flycheck
+#+BEGIN_SRC emacs-lisp
+(setq flycheck-pycheckers-checkers (list 'pylint 'mypy3))
+#+END_SRC
+	
+* Mail
+** General
+#+BEGIN_SRC emacs-lisp
+	;; (use-package mu4e 
+	;; 	:config
+	;; 	(setq mail-user-agent 'mu4e-user-agent)
+
+	;; 	(setq mu4e-maildir "~/Maildir")
+	;; 	(setq mu4e-get-mail-command "offlineimap")
+
+	;; 	(setq auth-sources
+	;; 	'((:source "~/.authinfo.gpg")))
+
+	;; 	(setq message-kill-buffer-on-exit t)
+	;; 	(setq mu4e-update-interval (* 15 60))
+	;; 	(setq mu4e-index-update-in-background t)
+	;; 	(setq
+	;; 	 mu4e-index-cleanup nil      ;; don't do a full cleanup check
+	;; 	 mu4e-index-lazy-check t)    ;; don't consider up-to-date dirs
+
+	;; 	(global-set-key (kbd "C-x C-m C-m") 'mu4e))
+
+#+END_SRC
+
+** Hooks
+#+BEGIN_SRC emacs-lisp
+	;; (add-hook 'mu4e-compose-mode-hook 'flyspell-mode)
+	;; (add-hook 'mu4e-compose-mode-hook(lambda ()
+	;; 																	 (ispell-change-dictionary "danish")))
+#+END_SRC
+
+** Accounts
+#+BEGIN_SRC emacs-lisp
+	;; (setq mu4e-sent-folder "/Uni/Saved Items"
+	;; 			mu4e-drafts-folder "/Uni/Drafts"
+	;; 			user-mail-address "201610882@post.au.dk"
+	;; 			user-full-name     "Martin Nørskov Jensen"
+	;; 			smtpmail-default-smtp-server "post.au.dk"
+	;; 			smtpmail-stream-type 'starttls
+	;; 			smtpmail-smtp-service 25)
+
+	;; (defvar my-mu4e-account-alist
+	;; 	'(("Gmail"
+	;; 		 (user-mail-address  "martin.norskov@gmail.com")
+	;; 		 (mu4e-sent-folder   "/Gmail/Sent Items")
+	;; 		 (mu4e-drafts-folder "/Gmail/Drafts")
+	;; 		 (mu4e-trash-folder  "/Gmail/Deleted Items")
+	;; 		 (mu4e-refile-folder "/Gmail/Archive")
+	;; 		 (smtpmail-default-smtp-server "smtp.gmail.com") 
+	;; 		 (smtpmail-local-domain "gmail.com")    
+	;; 		 (smtpmail-smtp-user "martin.norskov@gmail.com")
+	;; 		 (smtpmail-smtp-server "smtp.gmail.com")
+	;; 		 (smtpmail-stream-type starttls)
+	;; 		 (smtpmail-smtp-service 587))
+	;; 		("Me"
+	;; 		 (user-mail-address  "martin_n@me.com")
+	;; 		 (mu4e-drafts-folder "/Me/Drafts")     
+	;; 		 (mu4e-sent-folder   "/Me/Sent")
+	;; 		 (mu4e-trash-folder  "/Me/Trash")
+	;; 		 (mu4e-refile-folder "/Me/Archive")
+	;; 		 (smtpmail-default-smtp-server "smtp.mail.me.com") 
+	;; 		 (smtpmail-local-domain "me.com")    
+	;; 		 (smtpmail-smtp-user "martin_n@me.com")
+	;; 		 (smtpmail-smtp-server "smtp.mail.me.com")
+	;; 		 (smtpmail-stream-type starttls)
+	;; 		 (smtpmail-smtp-service 587))
+	;; 		("Uni"
+	;; 		 (user-mail-address  "201610882@post.au.dk")
+	;; 		 (mu4e-drafts-folder "/Uni/Drafts")     
+	;; 		 (mu4e-sent-folder   "/Uni/Sent")
+	;; 		 (mu4e-trash-folder  "/Uni/Trash")
+	;; 		 (mu4e-refile-folder "/Uni/Archive")
+	;; 		 (smtpmail-default-smtp-server "post.au.dk") 
+	;; 		 (smtpmail-local-domain "post.au.dk")    
+	;; 		 (smtpmail-smtp-user "au553262")
+	;; 		 (smtpmail-smtp-server "post.au.dk")
+	;; 		 (smtpmail-stream-type starttls)
+	;; 		 (smtpmail-smtp-service 587))))
+
+	;; (defun my-mu4e-set-account ()
+	;; 	"Set the account for composing a message."
+	;; 	(let* ((account
+	;; 					(if mu4e-compose-parent-message
+	;; 							(let ((maildir (mu4e-message-field mu4e-compose-parent-message :maildir)))
+	;; 								(string-match "/\\(.*?\\)/" maildir)
+	;; 								(match-string 1 maildir))
+	;; 						(completing-read (format "Compose with account: (%s) "
+	;; 																		 (mapconcat #'(lambda (var) (car var))
+	;; 																								my-mu4e-account-alist "/"))
+	;; 														 (mapcar #'(lambda (var) (car var)) my-mu4e-account-alist)
+	;; 														 nil t nil nil (caar my-mu4e-account-alist))))
+	;; 				 (account-vars (cdr (assoc account my-mu4e-account-alist))))
+	;; 		(if account-vars
+	;; 				(mapc #'(lambda (var)
+	;; 									(set (car var) (cadr var)))
+	;; 							account-vars)
+	;; 			(error "No email account found"))))
+
+	;; (setq mu4e-user-mail-address-list
+	;; 			(mapcar (lambda (account) (cadr (assq 'user-mail-address account)))
+	;; 							my-mu4e-account-alist))
+
+	;; ;; ask for account when composing mail
+	;; (add-hook 'mu4e-compose-pre-hook 'my-mu4e-set-account)
+#+END_SRC
+
+** HTML Render
+#+BEGIN_SRC emacs-lisp
+	;; (use-package mu4e-contrib)
+	;; (setq mu4e-html2text-command 'mu4e-shr2text)
+	;; (setq mu4e-html2text-command "iconv -c -t utf-8 | pandoc -f html -t plain")
+	;; (add-to-list 'mu4e-view-actions '("ViewInBrowser" . mu4e-action-view-in-browser) t)
+
+	;; (defun my-mu4e-action-view-with-xwidget(msg)
+	;; "View the body of the message inside xwidget-webkit."
+	;; (unless(fboundp 'xwidget-webkit-browse-url)
+	;; 			(mu4e-error "No xwidget support available"))
+	;; 		(let * ((html(mu4e-message-field msg: body-html))
+	;; 						(txt(mu4e-message-field msg: body-txt))
+	;; 						(tmpfile(format "%s%x.html" temporary-file-directory(random t))))
+	;; 			(unless(or html txt)
+	;; 				(mu4e-error "No body part for this message"))
+	;; 			(with-temp-buffer				;; simplistic-- but note that it's only an example...
+	;; 				(insert(or html(concat "<pre>" txt "</pre>")))
+	;; 				(write-file tmpfile)
+	;; 				(xwidget-webkit-browse-url(concat "file://" tmpfile) t))))
+
+
+	;; 	(add-to-list 'mu4e-view-actions
+	;; 		'("xViewXWidget" . my-mu4e-action-view-with-xwidget) t)	;; use imagemagick, if available
+	;; 	(when(fboundp 'imagemagick-register-types)
+	;; 		(imagemagick-register-types))
+#+END_SRC
+
+** Maildir shortcuts
+#+BEGIN_SRC emacs-lisp
+	;; (setq mu4e-maildir-shortcuts
+	;; 			'(("/Gmail/INBOX" . ?g)
+	;; 	("/Uni/INBOX". ?u)
+	;; 	("/Me/INBOX" . 	?m)))
+
+	;; (defvar inbox-folders(string-join '("maildir:/Gmail/INBOX"
+	;; 						"maildir:/Uni/INBOX"
+	;; 						"maildir:/Me/INBOX")
+	;; 					" OR "))
+
+	;; (defvar draft-folders(string-join '("maildir:/Gmail/INBOX.Drafts"
+	;; 						"maildir:/Uni/INBOX.Drafts"
+	;; 						"maildir:/Me/INBOX.Drafts")
+	;; 					" OR "))
+
+	;; (defvar sent-folders(string-join '("maildir:/Gmail/Sent"
+	;; 					 "maildir:/Uni/Sent"
+	;; 					 "maildir:/Me/Sent")
+	;; 				 " OR "))
+
+	;; (add-to-list 'mu4e-bookmarks
+	;; 			 '(inbox-folders "All inbox mail"     ?A))
+	;; (add-to-list 'mu4e-bookmarks
+	;; 			 '(draft-folders "All drafts"     ?d))
+	;; (add-to-list 'mu4e-bookmarks
+	;; 			 '(sent-folders "All sent mails"     ?s))
+#+END_SRC
+
+* Typescript
+#+BEGIN_SRC emacs-lisp
+	(use-package tide
+			:ensure t)
+	(defun setup-tide-mode()
+		(interactive)
+		(tide-setup)
+		(flycheck-mode +1)
+		(setq flycheck-check-syntax-automatically '(save mode-enabled))
+		(eldoc-mode +1)
+		(tide-hl-identifier-mode +1)		;; company is an optional dependency. You have to
+		;; install it separately via package-install
+		;; `M-x package-install [ret] company`
+		(company-mode +1))	;; aligns annotation to the right hand side
+	(setq company-tooltip-align-annotations t)	;; formats the buffer before saving
+	(add-hook 'before-save-hook 'tide-format-before-save)
+	(add-hook 'before-save-hook 'tide-auto-compile-file)
+
+	(add-hook 'typescript-mode-hook 'setup-tide-mode)
+#+END_SRC
+
+* Markdown
+** Pandoc
+#+BEGIN_SRC emacs-lisp
+(add-hook 'markdown-mode-hook 'pandoc-mode)
+(add-hook 'pandoc-mode-hook 'pandoc-load-default-settings)
+#+END_SRC	
+* Java
+** Meghanda
+#+BEGIN_SRC emacs-lisp
+(use-package autodisass-java-bytecode
+  :ensure t
+  :defer t)
+
+(use-package google-c-style
+  :defer t
+  :ensure t
+  :commands
+  (google-set-c-style))
+
+(use-package meghanada
+  :defer t
+	:ensure t
+  :init
+  (add-hook 'java-mode-hook
+            (lambda ()
+              (google-set-c-style)
+              (google-make-newline-indent)
+              (meghanada-mode t)
+              (smartparens-mode t)
+              (rainbow-delimiters-mode t)
+              (highlight-symbol-mode t)
+              (add-hook 'before-save-hook 'meghanada-code-beautify-before-save)))
+
+  :config
+  (use-package realgud
+    :ensure t)
+  (setq indent-tabs-mode nil)
+  (setq tab-width 2)
+  (setq c-basic-offset 2)
+  (setq meghanada-server-remote-debug t)
+  (setq meghanada-javac-xlint "-Xlint:all,-processing")
+  :bind
+  (:map meghanada-mode-map
+        ("C-S-t" . meghanada-switch-testcase)
+        ("M-RET" . meghanada-local-variable)
+        ("C-M-." . helm-imenu)
+        ("M-r" . meghanada-reference)
+        ("M-t" . meghanada-typeinfo)
+        ("C-z" . hydra-meghanada/body))
+  :commands
+  (meghanada-mode))
+#+END_SRC	

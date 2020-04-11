@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: italic
+# key: i
+# expand-env: ((yas-indent-line 'fixed))	
+# --
+\textit{$0}

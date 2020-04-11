@@ -1,0 +1,17 @@
+recentf
+.org-id-locations
+auto-save-list/*
+elpa/*
+session.*
+conf.el
+projectile-bookmarks.eld
+ido.last
+eshell/*
+games/*
+ido.last
+projectile-bookmarks.eld
+.python-environments
+.emacs.desktop*
+viper
+meghanada
+transient

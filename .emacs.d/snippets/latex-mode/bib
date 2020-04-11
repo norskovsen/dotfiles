@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: bib
+# key: bib
+# --
+\begin{thebibliography}{9}	
+	\bibitem{int}
+	Efternavn, Fornavn:
+	\emph{Bogen navn}, n edition
+\end{thebibliography}

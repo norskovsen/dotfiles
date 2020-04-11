@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: println
+# key: sout
+# expand-env: ((yas-indent-line 'fixed))		
+# --
+System.out.println($0);

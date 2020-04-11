@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: info
+# key: inf
+# expand-env: ((yas-indent-line 'fixed))
+# --
+#+NAME: $1
+#+CAPTION: $2
