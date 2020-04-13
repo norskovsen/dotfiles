@@ -1,5 +1,4 @@
 #!/bin/bash
-
 printf "Updating system"
 sudo apt update -y
 sudo apt upgrade -y
@@ -93,6 +92,8 @@ omf install z
 
 printf "\nConfiguring"
 
+echo "export EDITOR='nvim" >> ~/.bashrc
+echo "" >> ~/.bashrc
 echo "exec fish" >> ~/.bashrc
 
 sudo update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper
