@@ -1,13 +1,15 @@
 #!/bin/bash
-printf "Updating system"
+printf "Updating system\n"
 sudo apt update -y
 sudo apt upgrade -y
 
-printf "\n Adding ppas"
+printf "\nAdding ppas\n"
+sudo apt install -f curl
 sudo add-apt-repository ppa:agornostal/ulauncher
 sudo add-apt-repository ppa:numix/ppa
 
 # ppa for vs-code
+
 curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
 sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
 sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
@@ -16,12 +18,10 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microso
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
-printf "\nInstalling packages"
+printf "\nInstalling packages\n"
 sudo apt install -y vim \
                     emacs \
                     neovim \
-                    dropbox \
-                    redlight \
                     make \
                     git \
                     curl \
@@ -32,7 +32,7 @@ sudo apt install -y vim \
                     xfce4-volumed \
                     xfce4-clipman \
                     xfce4-notifyd \
-                    xfce-settings \
+                    xfce4-settings \
                     xfce4-pulseaudio-plugin \
                     wget \
                     volumeicon-alsa \
@@ -44,38 +44,43 @@ sudo apt install -y vim \
                     dunst \
                     deepin-screenshot \
                     playerctl \
-                    gnome-pomodoro \
+                    gnome-shell-pomodoro \
                     ulauncher \
                     arc-theme \
                     numix-icon-theme-circle \
                     lxappearance \
                     gnome-screensaver \
-                    code \
                     apt-transport-https \
                     autorandr \
                     spotify-client \
                     fish \
                     zathura \
-                    texlive-full
+                    texlive-full \
+		    gnome-tweak-tool \
+		    chrome-gnome-shell \
+		    ranger \
+		    fonts-powerline \
+		    ispell \
+		    aspell-da
 
-printf "\nInstalling snap packages"
-sudo snap install android-studio --classic \
-                  caprine \
-                  clion --classic \
-                  emoj \
-                  intellij-idea-ultimate --classic --edge \
-                  postman \
-                  pycharm-professional --classic \
-                  slack \
-                  youtube-dl \
-                  termdown \
-                  mathpix-snipping-tool
+printf "\nInstalling snap packages\n"
+sudo snap install android-studio --classic 
+sudo snap install caprine 
+sudo snap install clion --classic 
+sudo snap install emoj 
+sudo snap install intellij-idea-ultimate --classic --edge 
+sudo snap install postman 
+sudo snap install pycharm-professional --classic 
+sudo snap install slack 
+sudo snap install youtube-dl 
+sudo snap install termdown 
+sudo snap install mathpix-snipping-tool
 
-printf "\nInstalling pip packages"
+printf "\nInstalling pip packages\n"
 # TODO
 
-printf "\nInstalling debs"
-cd Downloads
+printf "\nInstalling debs\n"
+cd ~/Downloads
 
 wget -O mailspring.deb "https://updates.getmailspring.com/download?platform=linuxDeb"
 sudo dpkg -i mailspring.deb
@@ -89,15 +94,18 @@ sudo dpkg -i zoom.deb
 wget -O google-chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 sudo dpkg -i google-chrome.deb
 
+wget -O dropbox.deb "https://www.dropbox.com/download?dl=packages/ubuntu/dropbox_2020.03.04_amd64.deb"
+sudo dpkg -i dropbox.deb
+
 sudo apt install -f -y
 
-printf "\nfish setup"
+printf "\nfish setup\n"
 curl -L https://get.oh-my.fish | fish
-omf install z
+echo "omf install z" | fish
+echo "omf install agnoster" | fish
 
-printf "\nConfiguring"
-
-echo "export EDITOR='nvim" >> ~/.bashrc
+printf "\nConfiguring\n"
+echo "export EDITOR='nvim'" >> ~/.bashrc
 echo "" >> ~/.bashrc
 echo "exec fish" >> ~/.bashrc
 
