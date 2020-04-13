@@ -19,6 +19,7 @@ echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sou
 printf "\nInstalling packages"
 sudo apt install -y vim \
                     emacs \
+                    neovim \
                     dropbox \
                     redlight \
                     make \
@@ -53,7 +54,9 @@ sudo apt install -y vim \
                     apt-transport-https \
                     autorandr \
                     spotify-client \
-                    fish
+                    fish \
+                    zathura \
+                    texlive-full
 
 printf "\nInstalling snap packages"
 sudo snap install android-studio --classic \
