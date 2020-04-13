@@ -89,6 +89,8 @@ sudo dpkg -i zoom.deb
 wget -O google-chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 sudo dpkg -i google-chrome.deb
 
+sudo apt install -f -y
+
 printf "\nfish setup"
 curl -L https://get.oh-my.fish | fish
 omf install z
