@@ -83,6 +83,8 @@ set termguicolors     " enable true colors support
 let ayucolor="mirage"   " for dark version of theme
 colorscheme ayu
 let g:airline_theme='ayu'
+"hi! Normal ctermbg=NONE guibg=NONE
+"hi! NonText ctermbg=NONE guibg=NONE
 
 " Gui
 :set guioptions-=m  "remove menu bar
