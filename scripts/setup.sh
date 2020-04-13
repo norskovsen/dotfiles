@@ -1,10 +1,10 @@
 #!/bin/bash
 
-echo "Updating system"
+printf "Updating system"
 sudo apt update -y
 sudo apt upgrade -y
 
-echo "\n Adding ppas"
+printf "\n Adding ppas"
 sudo add-apt-repository ppa:agornostal/ulauncher
 sudo add-apt-repository ppa:numix/ppa
 
@@ -17,7 +17,7 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microso
 curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
 echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
 
-echo "\n Installing packages"
+printf "\nInstalling packages"
 sudo apt install -y vim \
                     emacs \
                     dropbox \
@@ -53,9 +53,10 @@ sudo apt install -y vim \
                     code \
                     apt-transport-https \
                     autorandr \
-                    spotify-client
+                    spotify-client \
+                    fish
 
-echo "\nInstalling snap packages"
+printf "\nInstalling snap packages"
 sudo snap install android-studio --classic \
                   caprine \
                   clion --classic \
@@ -68,10 +69,10 @@ sudo snap install android-studio --classic \
                   termdown \
                   mathpix-snipping-tool
 
-echo "\nInstalling pip packages"
+printf "\nInstalling pip packages"
 # TODO
 
-echo "\nInstalling debs"
+printf "\nInstalling debs"
 cd Downloads
 
 wget -O mailspring.deb "https://updates.getmailspring.com/download?platform=linuxDeb"
@@ -86,12 +87,17 @@ sudo dpkg -i zoom.deb
 wget -O google-chrome.deb "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
 sudo dpkg -i google-chrome.deb
 
-echo "\nConfiguring"
+printf "\nfish setup"
+curl -L https://get.oh-my.fish | fish
+omf install z
+
+printf "\nConfiguring"
+
+echo "exec fish" >> ~/.bashrc
+
+sudo update-alternatives --set x-terminal-emulator /usr/bin/tilix.wrapper
 
 dropbox start & disown
-
-# Set tilix som default
-# TODO
 
 # Enable wakeup on USB
 sudo cp rc.local /etc/
