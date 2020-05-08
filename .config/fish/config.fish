@@ -2,6 +2,8 @@
 set fish_greeting
 
 set -gx PATH $PATH /opt/gradle/gradle-5.6.4/bin
+set -Ux EDITOR nvim
+#set -gx PATH $PATH ~/bin
 #set -gx TROUPE ~/Repos/Troupe
 
 function mltø
@@ -32,7 +34,7 @@ alias xclip "xclip -sel clip"
 alias ipy "ipython3"
 alias l "ls -lh"
 alias vi "nvim"
-alias open "xdg-open"
+#alias open "xdg-open"
 alias aflevering "~/Dropbox/UNI/.aflevering.py"
 alias zzz "systemctl suspend"
 alias gimmeh "sudo apt install"
@@ -73,8 +75,10 @@ function fish_right_prompt
   #intentionally left blank
 end
 
-# Troupe
-alias troupe-local $TROUPE'local.sh'
-alias troupe-network $TROUPE'network.sh'
-
 # System
+
+# opam configuration
+source /home/martin/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+
+# midlang 
+alias mid "docker run --rm -ti -v (pwd):/home/work midlang mid"

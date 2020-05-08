@@ -1,12 +1,15 @@
 #!/bin/bash
-sudo apt-get install -y \
-  cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev \
-  libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev \
-  libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen \
-  xcb-proto libxcb-xrm-dev i3-wm libasound2-dev libmpdclient-dev \
-  libiw-dev libcurl4-openssl-dev libpulse-dev \
-  libxcb-composite0-dev xcb libxcb-ewmh2
+sudo apt install git nitrogen rofi python-pip binutils gcc make pkg-config fakeroot cmake python-xcbgen xcb-proto libxcb-ewmh-dev wireless-tools libiw-dev libasound2-dev libpulse-dev libcurl4-openssl-dev libmpdclient-dev libjsoncpp-dev libxcb-composite0-dev -y
 
-cd ~/Repos/polybar
-git checkout 3.4.1
-./build.sh
+cd /tmp/
+git clone https://github.com/jaagr/polybar
+# shellcheck disable=SC2164
+cd polybar
+# shellcheck disable=SC2164
+USE_GCC=ON ENABLE_I3=ON ENABLE_ALSA=ON ENABLE_PULSEAUDIO=ON ENABLE_NETWORK=ON ENABLE_MPD=ON ENABLE_CURL=ON ENABLE_IPC_MSG=ON INSTALL=OFF INSTALL_CONF=OFF ./build.sh -f
+# shellcheck disable=SC2164
+cd build
+sudo make install
+sudo make userconfig
+cd ../..
+rm -fr polybar

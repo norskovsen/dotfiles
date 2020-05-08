@@ -61,7 +61,14 @@ sudo apt install -y vim \
 		    ranger \
 		    fonts-powerline \
 		    ispell \
-		    aspell-da
+		    aspell-da \
+                    suckless-tools \
+                    htop \
+                    mplayer \
+                    compton \
+                    golang \
+                    npm \
+                    ipython3 
 
 printf "\nInstalling snap packages\n"
 sudo snap install android-studio --classic 

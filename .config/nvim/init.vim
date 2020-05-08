@@ -2,7 +2,7 @@
 "let &packpath = &runtimepath
 "source ~/.vimrc
 "
-"
+
 set rnu!
 set ai
 set hlsearch            
@@ -52,6 +52,7 @@ Plugin 'eagletmt/ghcmod-vim'
 Plugin 'dag/vim-fish'
 Plugin 'jez/vim-better-sml'
 Plugin 'BrandonRoehl/auto-omni'
+Plugin 'calebsmith/vim-lambdify'
 
 " Markdown
 Plugin 'godlygeek/tabular'
@@ -64,6 +65,16 @@ let vim_markdown_preview_github=1
 " HTML
 Plugin 'alvan/vim-closetag'
 Plugin 'mattn/emmet-vim'
+
+" Solidity
+Plugin 'tomlion/vim-solidity'
+Plugin 'dmdque/solidity.vim'
+
+" OCaml
+Plugin 'ocaml/vim-ocaml'
+
+" Elm
+Plugin 'elmcast/elm-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -81,6 +92,7 @@ let g:molokai_original = 1
 " Theme
 set termguicolors     " enable true colors support
 let ayucolor="mirage"   " for dark version of theme
+"let ayucolor="light"   " for dark version of theme
 colorscheme ayu
 let g:airline_theme='ayu'
 "hi! Normal ctermbg=NONE guibg=NONE
@@ -100,6 +112,7 @@ let g:quickrun_known_file_types = {
         \"vim": ["source %"],
         \"py": ["!python3 %"],
         \"trp": ["!~/Repos/Troupe/local.sh %"],
+        \"sol": ["!solc --bin --optimize %"],
     \}
 
 nnoremap <F5> :QuickRun<cr>
@@ -125,3 +138,15 @@ autocmd BufRead,BufNewFile comments.txt Dklang
 au BufRead,BufNewFile *.trp set filetype=troupe
 au! Syntax troupe source ~/.config/nvim/troupe.vim
 
+" Solidity
+augroup quickfix
+  autocmd!
+  autocmd QuickFixCmdPost make nested copen
+augroup END
+
+" Liquidity
+au BufRead,BufNewFile *.liq set filetype=ocaml
+
+au BufRead,BufNewFile *.midlang set filetype=elm
+
+au BufRead,BufNewFile *.conf set filetype=conf
