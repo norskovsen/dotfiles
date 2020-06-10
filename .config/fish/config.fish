@@ -1,15 +1,7 @@
-# file: ~/.bash_profile
-set fish_greeting
-
 set -gx PATH $PATH /opt/gradle/gradle-5.6.4/bin
+set -gx PATH $PATH ~/midlang
+set -gx PATH $PATH ~/.local/bin
 set -Ux EDITOR nvim
-#set -gx PATH $PATH ~/bin
-#set -gx TROUPE ~/Repos/Troupe
-
-function mltø
-	 cd ~/Dropbox/UNI/S5/Machine\ Learning/TØ
-	 jupyter notebook
-end
 
 function sudo
     if test "$argv" = !!
@@ -39,8 +31,11 @@ alias aflevering "~/Dropbox/UNI/.aflevering.py"
 alias zzz "systemctl suspend"
 alias gimmeh "sudo apt install"
 alias timer "java -jar ~/Dropbox/UNI/Programmer/Eksamenstimer.jar & disown"
-alias top "chafa ~/Diverse/top.jpg"
-alias høker "chafa ~/Diverse/hoeker.png"
+
+alias icat 'kitty +kitten icat'
+alias top "icat --align left ~/Diverse/top.jpg"
+alias høker "icat --align left ~/Diverse/hoeker.png"
+
 alias ccat='pygmentize -g'
 alias bbdownload '/home/martin/Dropbox/Projekter/Python/Blackboard-Scripts/download.py'
 alias http-server 'python3 -m http.server'
@@ -81,4 +76,4 @@ end
 source /home/martin/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # midlang 
-alias mid "docker run --rm -ti -v (pwd):/home/work midlang mid"
+#alias mid 'docker run --rm --network="host" -ti -v (pwd):/home/work midlang mid'

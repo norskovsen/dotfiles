@@ -26,7 +26,7 @@ sudo apt install -y vim \
                     git \
                     curl \
                     python3-pip \
-                    tilix \
+                    kitty \
                     steam \
                     xfce4-power-manager \
                     xfce4-volumed \
@@ -68,7 +68,8 @@ sudo apt install -y vim \
                     compton \
                     golang \
                     npm \
-                    ipython3 
+                    ipython3 \
+                    flake8
 
 printf "\nInstalling snap packages\n"
 sudo snap install android-studio --classic 

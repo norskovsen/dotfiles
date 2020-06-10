@@ -76,6 +76,13 @@ Plugin 'ocaml/vim-ocaml'
 " Elm
 Plugin 'elmcast/elm-vim'
 
+" Scilla
+Plugin 'edisonljh/vim-scilla'
+Plugin 'dense-analysis/ale'
+
+" Python3
+Plugin 'nvie/vim-flake8'
+
 call vundle#end()
 filetype plugin indent on
 syntax on
@@ -92,7 +99,7 @@ let g:molokai_original = 1
 " Theme
 set termguicolors     " enable true colors support
 let ayucolor="mirage"   " for dark version of theme
-"let ayucolor="light"   " for dark version of theme
+"let ayucolor="light"   " for light version of theme
 colorscheme ayu
 let g:airline_theme='ayu'
 "hi! Normal ctermbg=NONE guibg=NONE
@@ -113,6 +120,7 @@ let g:quickrun_known_file_types = {
         \"py": ["!python3 %"],
         \"trp": ["!~/Repos/Troupe/local.sh %"],
         \"sol": ["!solc --bin --optimize %"],
+        \"midlang": ["!mid build %"],
     \}
 
 nnoremap <F5> :QuickRun<cr>
@@ -146,7 +154,7 @@ augroup END
 
 " Liquidity
 au BufRead,BufNewFile *.liq set filetype=ocaml
-
 au BufRead,BufNewFile *.midlang set filetype=elm
-
 au BufRead,BufNewFile *.conf set filetype=conf
+
+

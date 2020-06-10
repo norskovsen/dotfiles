@@ -1,5 +1,5 @@
 #!/bin/bash
-sudo apt install git nitrogen rofi python-pip binutils gcc make pkg-config fakeroot cmake python-xcbgen xcb-proto libxcb-ewmh-dev wireless-tools libiw-dev libasound2-dev libpulse-dev libcurl4-openssl-dev libmpdclient-dev libjsoncpp-dev libxcb-composite0-dev -y
+sudo apt install git nitrogen rofi python3-pip binutils gcc make pkg-config fakeroot cmake python3-xcbgen xcb-proto libxcb-ewmh-dev wireless-tools libiw-dev libasound2-dev libpulse-dev libcurl4-openssl-dev libmpdclient-dev libjsoncpp-dev libxcb-composite0-dev libasound2-dev libcurl3-dev -y
 
 cd /tmp/
 git clone https://github.com/jaagr/polybar
