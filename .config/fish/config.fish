@@ -44,6 +44,7 @@ alias fix-network 'systemctl restart network-manager'
 alias plz 'sudo'
 alias copy 'xclip -sel clip'
 alias sound-reset 'killall volumeicon ; env Exec=env GTK_THEME=Arc:dark volumeicon & disown'
+alias fix-padding 'bspc config top_padding 0'
 
 # Notifications
 alias do-not-disturb 'killall -SIGUSR1 dunst'
@@ -65,6 +66,9 @@ alias dubidub "mplayer ~/Diverse/dudidud.mp3 -ss 04 -endpos 0.7 > /dev/null 2>&1
 alias dramatic "mplayer ~/Diverse/sounds/dramatic.mp3 > /dev/null 2>&1"
 alias bitch "mplayer ~/Diverse/sounds/bitch.mp3 > /dev/null 2>&1"
 alias yes "mplayer ~/Diverse/sounds/yes.mp3 -ss 01 > /dev/null 2>&1"
+
+#alias python python3
+#alias pip pip3
 
 function fish_right_prompt
   #intentionally left blank

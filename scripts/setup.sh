@@ -69,7 +69,10 @@ sudo apt install -y vim \
                     golang \
                     npm \
                     ipython3 \
-                    flake8
+                    flake8 \
+                    neofetch \
+                    screenfetch \
+                    arandr
 
 printf "\nInstalling snap packages\n"
 sudo snap install android-studio --classic 

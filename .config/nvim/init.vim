@@ -83,6 +83,14 @@ Plugin 'dense-analysis/ale'
 " Python3
 Plugin 'nvie/vim-flake8'
 
+" LaTeX
+Plugin 'lervag/vimtex'
+Plugin 'matze/vim-tex-fold'
+Plugin 'jiangmiao/auto-pairs'
+
+" Javascript
+Plugin 'maxmellon/vim-jsx-pretty'
+
 call vundle#end()
 filetype plugin indent on
 syntax on
@@ -121,6 +129,7 @@ let g:quickrun_known_file_types = {
         \"trp": ["!~/Repos/Troupe/local.sh %"],
         \"sol": ["!solc --bin --optimize %"],
         \"midlang": ["!mid build %"],
+        \"js": ["!node %"],
     \}
 
 nnoremap <F5> :QuickRun<cr>
@@ -132,7 +141,7 @@ set completeopt-=preview
 set guioptions+=a
 
 " Spell check
-command Dklang setlocal spelllang=da
+command Dkdir setlocal spelllang=da
 command Spellcommands setlocal spell | setlocal linebreak
 autocmd BufRead,BufNewFile *.txt Spellcommands
 autocmd BufRead,BufNewFile *.org Spellcommands
@@ -157,4 +166,5 @@ au BufRead,BufNewFile *.liq set filetype=ocaml
 au BufRead,BufNewFile *.midlang set filetype=elm
 au BufRead,BufNewFile *.conf set filetype=conf
 
-
+" LaTeX
+let g:vimtex_view_method = 'zathura'
