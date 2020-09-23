@@ -4,9 +4,7 @@ autorandr --change
 
 sxhkd &
 
-bspc monitor -g 1920x1200+0+0
-
-bspc monitor -d 1 2 3 4 5 6 7 8 9
+#bspc monitor -g 1920x1200+0+0
 
 bspc config border_width         0
 bspc config window_gap           5
@@ -18,7 +16,7 @@ bspc config focus_follows_pointer true
 
 # autostart applications
 nitrogen --restore &
-/$HOME/.config/polybar/launch.sh &
+/$HOME/.config/autorandr/postswitch &
 nm-applet &
 xfce4-power-manager &
 xfce4-clipman &
@@ -33,11 +31,15 @@ ulauncher --hide-window &
 mailspring -b  &
 redshift-gtk -l 56:10 &
 dunst &
-unclutter &
+unclutter -grab &
 xsetroot -cursor_name left_ptr &
 setxkbmap -option "ctrl:nocaps" &
 gnome-screensaver &
 i8kmon & # fan control
+slack -u &
+#~/Diverse/fubini.sh &
+#vlc -f ~/Diverse/intro.webm &
+#vlc -f ~/Diverse/problem.mp4
 
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled 
@@ -56,3 +58,4 @@ bspc rule -a Nm-connection-editor state=floating
 bspc rule -a Software-properties-gtk state=floating 
 bspc rule -a "Mathpix Snipping Tool" state=floating 
 bspc rule -a Gnome-control-center state=floating
+bspc rule -a win0 state=floating

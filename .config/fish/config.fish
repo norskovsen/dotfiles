@@ -1,7 +1,9 @@
-set -gx PATH $PATH /opt/gradle/gradle-5.6.4/bin
+set -gx PATH $PATH /opt/gradle/bin
 set -gx PATH $PATH ~/midlang
 set -gx PATH $PATH ~/.local/bin
 set -Ux EDITOR nvim
+
+export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
 function sudo
     if test "$argv" = !!
@@ -31,6 +33,7 @@ alias aflevering "~/Dropbox/UNI/.aflevering.py"
 alias zzz "systemctl suspend"
 alias gimmeh "sudo apt install"
 alias timer "java -jar ~/Dropbox/UNI/Programmer/Eksamenstimer.jar & disown"
+alias sl "ls"
 
 alias icat 'kitty +kitten icat'
 alias top "icat --align left ~/Diverse/top.jpg"
@@ -45,6 +48,7 @@ alias plz 'sudo'
 alias copy 'xclip -sel clip'
 alias sound-reset 'killall volumeicon ; env Exec=env GTK_THEME=Arc:dark volumeicon & disown'
 alias fix-padding 'bspc config top_padding 0'
+alias vejret 'wget https://www.yr.no/sted/Danmark/Midtjylland/%C3%85rhus/varsel.pdf -O /tmp/varsel.pdf; zathura /tmp/varsel.pdf & disown'
 
 # Notifications
 alias do-not-disturb 'killall -SIGUSR1 dunst'
@@ -63,6 +67,7 @@ alias p4 'mplayer -playlist ~/Documents/Radio/p4-ostjylland.mp3.m3u'
 # Sounds
 alias louder '~/Diverse/musicify'
 alias dubidub "mplayer ~/Diverse/dudidud.mp3 -ss 04 -endpos 0.7 > /dev/null 2>&1"
+alias fubini "mplayer ~/Diverse/fubini.mp3 -ss 53  > /dev/null 2>&1"
 alias dramatic "mplayer ~/Diverse/sounds/dramatic.mp3 > /dev/null 2>&1"
 alias bitch "mplayer ~/Diverse/sounds/bitch.mp3 > /dev/null 2>&1"
 alias yes "mplayer ~/Diverse/sounds/yes.mp3 -ss 01 > /dev/null 2>&1"

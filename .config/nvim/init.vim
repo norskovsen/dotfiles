@@ -44,7 +44,6 @@ Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'ayu-theme/ayu-vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'MikeCoder/quickrun.vim' 
-Plugin 'artur-shaik/vim-javacomplete2'
 Plugin 'mboughaba/i3config.vim'
 Plugin 'ap/vim-css-color'
 Plugin 'itchyny/vim-haskell-indent'
@@ -53,6 +52,7 @@ Plugin 'dag/vim-fish'
 Plugin 'jez/vim-better-sml'
 Plugin 'BrandonRoehl/auto-omni'
 Plugin 'calebsmith/vim-lambdify'
+Plugin 'preservim/nerdtree'
 
 " Markdown
 Plugin 'godlygeek/tabular'
@@ -90,6 +90,13 @@ Plugin 'jiangmiao/auto-pairs'
 
 " Javascript
 Plugin 'maxmellon/vim-jsx-pretty'
+
+" Java
+Plugin 'hdiniz/vim-gradle'
+Plugin 'artur-shaik/vim-javacomplete2'
+
+" Git
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()
 filetype plugin indent on
@@ -134,12 +141,6 @@ let g:quickrun_known_file_types = {
 
 nnoremap <F5> :QuickRun<cr>
 
-" Java
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
-
-set completeopt-=preview
-set guioptions+=a
-
 " Spell check
 command Dkdir setlocal spelllang=da
 command Spellcommands setlocal spell | setlocal linebreak
@@ -168,3 +169,10 @@ au BufRead,BufNewFile *.conf set filetype=conf
 
 " LaTeX
 let g:vimtex_view_method = 'zathura'
+let g:tex_flavor = 'latex'
+
+" Nerd tree
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+nmap <F6> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.DS_Store$', '\.git$', '__pycache__'] " ignore files in nerd tree
