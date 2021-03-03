@@ -1,6 +1,7 @@
 set -gx PATH $PATH /opt/gradle/bin
 set -gx PATH $PATH ~/midlang
 set -gx PATH $PATH ~/.local/bin
+set -gx PATH $PATH ~/.deno/bin
 set -Ux EDITOR nvim
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
@@ -42,7 +43,7 @@ alias høker "icat --align left ~/Diverse/hoeker.png"
 alias ccat='pygmentize -g'
 alias bbdownload '/home/martin/Dropbox/Projekter/Python/Blackboard-Scripts/download.py'
 alias http-server 'python3 -m http.server'
-alias fix-caps 'setxkbmap -option ctrl:swapcaps'
+alias fix-caps 'xmodmap ~/.xmodmap'
 alias fix-network 'systemctl restart network-manager'
 alias plz 'sudo'
 alias copy 'xclip -sel clip'
@@ -71,9 +72,12 @@ alias fubini "mplayer ~/Diverse/fubini.mp3 -ss 53  > /dev/null 2>&1"
 alias dramatic "mplayer ~/Diverse/sounds/dramatic.mp3 > /dev/null 2>&1"
 alias bitch "mplayer ~/Diverse/sounds/bitch.mp3 > /dev/null 2>&1"
 alias yes "mplayer ~/Diverse/sounds/yes.mp3 -ss 01 > /dev/null 2>&1"
+alias attention "mplayer ~/Diverse/attention.mp3 -ss 10 -endpos 2 > /dev/null 2>&1"
 
 #alias python python3
 #alias pip pip3
+
+alias mon2cam 'sudo /home/martin/.deno/bin/deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts'
 
 function fish_right_prompt
   #intentionally left blank

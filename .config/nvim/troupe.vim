@@ -23,7 +23,7 @@ hi def link smlRaise Keyword
 syn keyword smlBoolOp andalso orelse
 hi def link smlBoolOp Keyword
 
-syn keyword smlDecl and datatype exception fun in infix infixr
+syn keyword smlDecl and datatype exception fun in infix infixr import
 syn keyword smlDecl nonfix rec type val withtype
 hi def link smlDecl Structure
 
@@ -172,5 +172,5 @@ hi def link smlDot smlDelim
 
 " vim: set fdm=marker:
 "
-syn keyword smlStandardFunc attenuate authority declassify lowermbox mkuuid pinipop pinipush print printWithLabels sandbox self send _setProcessDebuggingName sleep spawn raisedTo raiseTrust raisembox readInput receive register rcv whereis 
+syn keyword smlStandardFunc attenuate authority declassify lowermbox mkuuid pinipop pinipush print printWithLabels sandbox self send _setProcessDebuggingName sleep spawn raisedTo raiseTrust raisembox readInput receive register rcv whereis
 hi def link smlStandardFunc Function

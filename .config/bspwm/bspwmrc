@@ -16,7 +16,7 @@ bspc config focus_follows_pointer true
 
 # autostart applications
 nitrogen --restore &
-/$HOME/.config/autorandr/postswitch &
+#/$HOME/.config/autorandr/postswitch &
 nm-applet &
 xfce4-power-manager &
 xfce4-clipman &
@@ -36,10 +36,12 @@ xsetroot -cursor_name left_ptr &
 setxkbmap -option "ctrl:nocaps" &
 gnome-screensaver &
 i8kmon & # fan control
-slack -u &
-#~/Diverse/fubini.sh &
-#vlc -f ~/Diverse/intro.webm &
-#vlc -f ~/Diverse/problem.mp4
+discord --start-minimized &
+#~/.config/polybar/launch.py &
+killall monitor-update.py
+~/Repos/bspwm-scripts/monitor-update.py &
+killall sound-update.py
+~/Repos/bspwm-scripts/sound-update.py &
 
 bspc rule -a Zathura state=tiled
 bspc rule -a Emacs state=tiled 
@@ -59,3 +61,4 @@ bspc rule -a Software-properties-gtk state=floating
 bspc rule -a "Mathpix Snipping Tool" state=floating 
 bspc rule -a Gnome-control-center state=floating
 bspc rule -a win0 state=floating
+bspc rule -a Yad state=floating

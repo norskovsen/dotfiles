@@ -1,6 +1,6 @@
 #!/bin/bash
 nitrogen --restore
-~/.config/polybar/launch.sh
+~/.config/polybar/launch.py
 for monitor in $(bspc query -M --names); do
 bspc monitor $monitor \
         -d $monitor/{a,b,c,d,e,f,g,h,i}

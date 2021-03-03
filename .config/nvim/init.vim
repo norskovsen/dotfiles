@@ -27,78 +27,92 @@ set omnifunc=syntaxcomplete#Complete
 " Plugins
 set nocompatible
 filetype off   
-set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.vim/plugged')
 
-Plugin 'git://git.wincent.com/command-t.git'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'Shougo/vimproc.vim'
-Plugin 'jceb/vim-orgmode'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'tpope/vim-speeddating'
-Plugin 'rafi/awesome-vim-colorschemes'
-Plugin 'ayu-theme/ayu-vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'MikeCoder/quickrun.vim' 
-Plugin 'mboughaba/i3config.vim'
-Plugin 'ap/vim-css-color'
-Plugin 'itchyny/vim-haskell-indent'
-Plugin 'eagletmt/ghcmod-vim'
-Plugin 'dag/vim-fish'
-Plugin 'jez/vim-better-sml'
-Plugin 'BrandonRoehl/auto-omni'
-Plugin 'calebsmith/vim-lambdify'
-Plugin 'preservim/nerdtree'
+Plug 'git://git.wincent.com/command-t.git'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'Shougo/vimproc.vim'
+Plug 'jceb/vim-orgmode'
+Plug 'Valloric/YouCompleteMe'
+Plug 'leafgarland/typescript-vim'
+Plug 'tpope/vim-speeddating'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'scrooloose/nerdcommenter'
+Plug 'MikeCoder/quickrun.vim' 
+Plug 'mboughaba/i3config.vim'
+Plug 'ap/vim-css-color'
+Plug 'itchyny/vim-haskell-indent'
+Plug 'eagletmt/ghcmod-vim'
+Plug 'dag/vim-fish'
+Plug 'jez/vim-better-sml'
+Plug 'BrandonRoehl/auto-omni'
+Plug 'calebsmith/vim-lambdify'
+Plug 'preservim/nerdtree'
+Plug 'andymass/vim-matchup'
 
 " Markdown
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 " Markdown preview
-Plugin 'JamshedVesuna/vim-markdown-preview'
+Plug 'JamshedVesuna/vim-markdown-preview'
 let vim_markdown_preview_github=1
 
 " HTML
-Plugin 'alvan/vim-closetag'
-Plugin 'mattn/emmet-vim'
+Plug 'alvan/vim-closetag'
+Plug 'mattn/emmet-vim'
 
 " Solidity
-Plugin 'tomlion/vim-solidity'
-Plugin 'dmdque/solidity.vim'
+Plug 'tomlion/vim-solidity'
+Plug 'dmdque/solidity.vim'
 
 " OCaml
-Plugin 'ocaml/vim-ocaml'
+Plug 'ocaml/vim-ocaml'
 
 " Elm
-Plugin 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim'
 
 " Scilla
-Plugin 'edisonljh/vim-scilla'
-Plugin 'dense-analysis/ale'
+Plug 'edisonljh/vim-scilla'
+Plug 'dense-analysis/ale'
 
 " Python3
-Plugin 'nvie/vim-flake8'
+Plug 'nvie/vim-flake8'
 
 " LaTeX
-Plugin 'lervag/vimtex'
-Plugin 'matze/vim-tex-fold'
-Plugin 'jiangmiao/auto-pairs'
+Plug 'lervag/vimtex'
+Plug 'jiangmiao/auto-pairs'
+Plug 'KeitaNakamura/tex-conceal.vim'  
+Plug 'Konfekt/FastFold'
+
 
 " Javascript
-Plugin 'maxmellon/vim-jsx-pretty'
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Java
-Plugin 'hdiniz/vim-gradle'
-Plugin 'artur-shaik/vim-javacomplete2'
+Plug 'hdiniz/vim-gradle'
+Plug 'artur-shaik/vim-javacomplete2'
 
 " Git
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
 
-call vundle#end()
+" Clipboard
+Plug 'junegunn/vim-peekaboo'
+
+" Snippets
+Plug 'sirver/ultisnips'
+Plug 'honza/vim-snippets'
+
+" Theme
+Plug 'ayu-theme/ayu-vim'
+
+" Coq
+Plug 'whonore/Coqtail'
+
+call plug#end()
+
 filetype plugin indent on
 syntax on
 
@@ -117,8 +131,6 @@ let ayucolor="mirage"   " for dark version of theme
 "let ayucolor="light"   " for light version of theme
 colorscheme ayu
 let g:airline_theme='ayu'
-"hi! Normal ctermbg=NONE guibg=NONE
-"hi! NonText ctermbg=NONE guibg=NONE
 
 " Gui
 :set guioptions-=m  "remove menu bar
@@ -150,7 +162,7 @@ autocmd BufRead,BufNewFile *.md  Spellcommands
 autocmd BufRead,BufNewFile *.tex Spellcommands
 
 " Afleveringer
-autocmd BufRead,BufNewFile comments.txt Dklang
+autocmd BufRead,BufNewFile comments.txt setlocal spelllang=da
 
 " Troupe
 au BufRead,BufNewFile *.trp set filetype=troupe
@@ -169,10 +181,46 @@ au BufRead,BufNewFile *.conf set filetype=conf
 
 " LaTeX
 let g:vimtex_view_method = 'zathura'
+let g:vimtex_compiler_progname = 'nvr'
 let g:tex_flavor = 'latex'
+"let g:vimtex_quickfix_mode=0
+set conceallevel=2
+let g:tex_conceal="abdgm"
+hi clear Conceal
+let g:vimtex_fold_enabled=1
 
-" Nerd tree
+"let g:vimtex_compiler_latexmk = {
+        "\ 'options' : [
+        "\   '-pdf' ,
+        "\   '-shell-escape' ,
+        "\   '-verbose' ,
+        "\   '-file-line-error',
+        "\   '-synctex=1' ,
+        "\   '-interaction=nonstopmode' ,
+        "\ ],
+        "\}
+
+" Matchup
+let g:matchup_surround_enabled = 0
+let g:matchup_transmute_enabled = 1
+let g:matchup_matchparen_deferred = 1
+let g:matchup_override_vimtex = 1
+
+" Nerdtree
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
 nmap <F6> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.DS_Store$', '\.git$', '__pycache__'] " ignore files in nerd tree
+
+" Snippets
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"hi SpellBad gui=undercurl guifg=undercurl
+"let g:tex_comment_nospell=1
+
+" Coq
+let g:coqtail_project_files = ['_CoqProject', '_CoqProject.local']
+hi default CheckedByCoq ctermbg=lightgreen guibg=Green
+hi default SentToCoq ctermbg=lightblue guibg=LimeGreen
