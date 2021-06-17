@@ -15,6 +15,7 @@ bspc config gapless_monocle      false
 bspc config focus_follows_pointer true
 
 # autostart applications
+#~/Diverse/random-background &
 nitrogen --restore &
 #/$HOME/.config/autorandr/postswitch &
 nm-applet &
@@ -22,7 +23,7 @@ xfce4-power-manager &
 xfce4-clipman &
 ff-theme-util &
 fix_xcursor &
-dropbox start &
+sleep 5s && dropbox start &
 blueman-applet &
 Exec=env GTK_THEME=Arc:dark volumeicon &
 compton --config ~/.config/compton.conf -b &
@@ -49,6 +50,7 @@ bspc rule -a Emacs state=tiled
 bspc rule -a matplotlib state=floating
 bspc rule -a Pomodoro state=floating
 bspc rule -a "Volume Control" state=floating 
+bspc rule -a "Question" state=floating 
 bspc rule -a Ulauncher state=floating 
 bspc rule -a Lxappearance state=floating 
 bspc rule -a Nitrogen state=floating 

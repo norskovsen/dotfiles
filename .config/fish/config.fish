@@ -2,7 +2,11 @@ set -gx PATH $PATH /opt/gradle/bin
 set -gx PATH $PATH ~/midlang
 set -gx PATH $PATH ~/.local/bin
 set -gx PATH $PATH ~/.deno/bin
+set -gx PATH $PATH ~/Diverse/
 set -Ux EDITOR nvim
+set -Ux TROUPE ~/Repos/Troupe/
+set -gx PATH $PATH $TROUPE/bin
+
 
 export QT_AUTO_SCREEN_SCALE_FACTOR=0
 
@@ -77,7 +81,7 @@ alias attention "mplayer ~/Diverse/attention.mp3 -ss 10 -endpos 2 > /dev/null 2>
 #alias python python3
 #alias pip pip3
 
-alias mon2cam 'sudo /home/martin/.deno/bin/deno run --unstable -A -r -q https://raw.githubusercontent.com/ShayBox/Mon2Cam/master/src/mod.ts'
+alias git-fix 'git pull --commit ; git push'
 
 function fish_right_prompt
   #intentionally left blank
@@ -90,3 +94,6 @@ source /home/martin/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # midlang 
 #alias mid 'docker run --rm --network="host" -ti -v (pwd):/home/work midlang mid'
+#
+# Haskell 
+source /home/martin/.ghcup/env
